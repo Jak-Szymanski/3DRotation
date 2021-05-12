@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/jakub/Documents/zad4-jszymanski36/inc/size.hh
+
+/home/jakub/Documents/zad4-jszymanski36/inc/vector.hh
+size.hh
+/home/jakub/Documents/zad4-jszymanski36/inc/size.hh
+iostream
+-
+
+/home/jakub/Documents/zad4-jszymanski36/inc/vector3D.hh
+vector.hh
+/home/jakub/Documents/zad4-jszymanski36/inc/vector.hh
+
+/home/jakub/Documents/zad4-jszymanski36/src/vector3D.cpp
+../inc/vector3D.hh
+/home/jakub/Documents/zad4-jszymanski36/inc/vector3D.hh
+
