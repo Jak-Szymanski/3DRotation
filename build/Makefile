@@ -577,6 +577,33 @@ app/main.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/app/main.cpp.s
 .PHONY : app/main.cpp.s
 
+src/cuboid.o: src/cuboid.cpp.o
+
+.PHONY : src/cuboid.o
+
+# target to build an object file
+src/cuboid.cpp.o:
+	$(MAKE) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/src/cuboid.cpp.o
+.PHONY : src/cuboid.cpp.o
+
+src/cuboid.i: src/cuboid.cpp.i
+
+.PHONY : src/cuboid.i
+
+# target to preprocess a source file
+src/cuboid.cpp.i:
+	$(MAKE) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/src/cuboid.cpp.i
+.PHONY : src/cuboid.cpp.i
+
+src/cuboid.s: src/cuboid.cpp.s
+
+.PHONY : src/cuboid.s
+
+# target to generate assembly for a file
+src/cuboid.cpp.s:
+	$(MAKE) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/src/cuboid.cpp.s
+.PHONY : src/cuboid.cpp.s
+
 src/example.o: src/example.cpp.o
 
 .PHONY : src/example.o
@@ -631,114 +658,6 @@ src/lacze_do_gnuplota.cpp.s:
 	$(MAKE) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/src/lacze_do_gnuplota.cpp.s
 .PHONY : src/lacze_do_gnuplota.cpp.s
 
-src/matrix.o: src/matrix.cpp.o
-
-.PHONY : src/matrix.o
-
-# target to build an object file
-src/matrix.cpp.o:
-	$(MAKE) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/src/matrix.cpp.o
-.PHONY : src/matrix.cpp.o
-
-src/matrix.i: src/matrix.cpp.i
-
-.PHONY : src/matrix.i
-
-# target to preprocess a source file
-src/matrix.cpp.i:
-	$(MAKE) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/src/matrix.cpp.i
-.PHONY : src/matrix.cpp.i
-
-src/matrix.s: src/matrix.cpp.s
-
-.PHONY : src/matrix.s
-
-# target to generate assembly for a file
-src/matrix.cpp.s:
-	$(MAKE) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/src/matrix.cpp.s
-.PHONY : src/matrix.cpp.s
-
-src/matrix3D.o: src/matrix3D.cpp.o
-
-.PHONY : src/matrix3D.o
-
-# target to build an object file
-src/matrix3D.cpp.o:
-	$(MAKE) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/src/matrix3D.cpp.o
-.PHONY : src/matrix3D.cpp.o
-
-src/matrix3D.i: src/matrix3D.cpp.i
-
-.PHONY : src/matrix3D.i
-
-# target to preprocess a source file
-src/matrix3D.cpp.i:
-	$(MAKE) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/src/matrix3D.cpp.i
-.PHONY : src/matrix3D.cpp.i
-
-src/matrix3D.s: src/matrix3D.cpp.s
-
-.PHONY : src/matrix3D.s
-
-# target to generate assembly for a file
-src/matrix3D.cpp.s:
-	$(MAKE) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/src/matrix3D.cpp.s
-.PHONY : src/matrix3D.cpp.s
-
-src/vector.o: src/vector.cpp.o
-
-.PHONY : src/vector.o
-
-# target to build an object file
-src/vector.cpp.o:
-	$(MAKE) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/src/vector.cpp.o
-.PHONY : src/vector.cpp.o
-
-src/vector.i: src/vector.cpp.i
-
-.PHONY : src/vector.i
-
-# target to preprocess a source file
-src/vector.cpp.i:
-	$(MAKE) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/src/vector.cpp.i
-.PHONY : src/vector.cpp.i
-
-src/vector.s: src/vector.cpp.s
-
-.PHONY : src/vector.s
-
-# target to generate assembly for a file
-src/vector.cpp.s:
-	$(MAKE) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/src/vector.cpp.s
-.PHONY : src/vector.cpp.s
-
-src/vector3D.o: src/vector3D.cpp.o
-
-.PHONY : src/vector3D.o
-
-# target to build an object file
-src/vector3D.cpp.o:
-	$(MAKE) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/src/vector3D.cpp.o
-.PHONY : src/vector3D.cpp.o
-
-src/vector3D.i: src/vector3D.cpp.i
-
-.PHONY : src/vector3D.i
-
-# target to preprocess a source file
-src/vector3D.cpp.i:
-	$(MAKE) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/src/vector3D.cpp.i
-.PHONY : src/vector3D.cpp.i
-
-src/vector3D.s: src/vector3D.cpp.s
-
-.PHONY : src/vector3D.s
-
-# target to generate assembly for a file
-src/vector3D.cpp.s:
-	$(MAKE) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/src/vector3D.cpp.s
-.PHONY : src/vector3D.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -784,24 +703,15 @@ help:
 	@echo "... app/main.o"
 	@echo "... app/main.i"
 	@echo "... app/main.s"
+	@echo "... src/cuboid.o"
+	@echo "... src/cuboid.i"
+	@echo "... src/cuboid.s"
 	@echo "... src/example.o"
 	@echo "... src/example.i"
 	@echo "... src/example.s"
 	@echo "... src/lacze_do_gnuplota.o"
 	@echo "... src/lacze_do_gnuplota.i"
 	@echo "... src/lacze_do_gnuplota.s"
-	@echo "... src/matrix.o"
-	@echo "... src/matrix.i"
-	@echo "... src/matrix.s"
-	@echo "... src/matrix3D.o"
-	@echo "... src/matrix3D.i"
-	@echo "... src/matrix3D.s"
-	@echo "... src/vector.o"
-	@echo "... src/vector.i"
-	@echo "... src/vector.s"
-	@echo "... src/vector3D.o"
-	@echo "... src/vector3D.i"
-	@echo "... src/vector3D.s"
 .PHONY : help
 
 

@@ -92,19 +92,13 @@ unit_tests_OBJECTS = \
 unit_tests_EXTERNAL_OBJECTS = \
 "/home/jakub/Documents/zad4-jszymanski36/build/CMakeFiles/program.dir/src/example.cpp.o" \
 "/home/jakub/Documents/zad4-jszymanski36/build/CMakeFiles/program.dir/src/lacze_do_gnuplota.cpp.o" \
-"/home/jakub/Documents/zad4-jszymanski36/build/CMakeFiles/program.dir/src/matrix.cpp.o" \
-"/home/jakub/Documents/zad4-jszymanski36/build/CMakeFiles/program.dir/src/vector.cpp.o" \
-"/home/jakub/Documents/zad4-jszymanski36/build/CMakeFiles/program.dir/src/matrix3D.cpp.o" \
-"/home/jakub/Documents/zad4-jszymanski36/build/CMakeFiles/program.dir/src/vector3D.cpp.o"
+"/home/jakub/Documents/zad4-jszymanski36/build/CMakeFiles/program.dir/src/cuboid.cpp.o"
 
 unit_tests: tests/CMakeFiles/unit_tests.dir/main.cpp.o
 unit_tests: tests/CMakeFiles/unit_tests.dir/dummy.cpp.o
 unit_tests: CMakeFiles/program.dir/src/example.cpp.o
 unit_tests: CMakeFiles/program.dir/src/lacze_do_gnuplota.cpp.o
-unit_tests: CMakeFiles/program.dir/src/matrix.cpp.o
-unit_tests: CMakeFiles/program.dir/src/vector.cpp.o
-unit_tests: CMakeFiles/program.dir/src/matrix3D.cpp.o
-unit_tests: CMakeFiles/program.dir/src/vector3D.cpp.o
+unit_tests: CMakeFiles/program.dir/src/cuboid.cpp.o
 unit_tests: tests/CMakeFiles/unit_tests.dir/build.make
 unit_tests: tests/CMakeFiles/unit_tests.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jakub/Documents/zad4-jszymanski36/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable ../unit_tests"

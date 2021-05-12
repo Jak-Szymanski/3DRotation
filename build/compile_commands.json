@@ -16,23 +16,8 @@
 },
 {
   "directory": "/home/jakub/Documents/zad4-jszymanski36/build",
-  "command": "/usr/bin/c++  -DENABLE_DOCTEST_IN_LIBRARY -I/home/jakub/Documents/zad4-jszymanski36/build -I/home/jakub/Documents/zad4-jszymanski36/inc -I/home/jakub/Documents/zad4-jszymanski36/external/doctest/doctest  -g   -Wall -Wextra -Wpedantic -Wno-switch-enum -Werror -std=c++17 -o CMakeFiles/program.dir/src/matrix.cpp.o -c /home/jakub/Documents/zad4-jszymanski36/src/matrix.cpp",
-  "file": "/home/jakub/Documents/zad4-jszymanski36/src/matrix.cpp"
-},
-{
-  "directory": "/home/jakub/Documents/zad4-jszymanski36/build",
-  "command": "/usr/bin/c++  -DENABLE_DOCTEST_IN_LIBRARY -I/home/jakub/Documents/zad4-jszymanski36/build -I/home/jakub/Documents/zad4-jszymanski36/inc -I/home/jakub/Documents/zad4-jszymanski36/external/doctest/doctest  -g   -Wall -Wextra -Wpedantic -Wno-switch-enum -Werror -std=c++17 -o CMakeFiles/program.dir/src/vector.cpp.o -c /home/jakub/Documents/zad4-jszymanski36/src/vector.cpp",
-  "file": "/home/jakub/Documents/zad4-jszymanski36/src/vector.cpp"
-},
-{
-  "directory": "/home/jakub/Documents/zad4-jszymanski36/build",
-  "command": "/usr/bin/c++  -DENABLE_DOCTEST_IN_LIBRARY -I/home/jakub/Documents/zad4-jszymanski36/build -I/home/jakub/Documents/zad4-jszymanski36/inc -I/home/jakub/Documents/zad4-jszymanski36/external/doctest/doctest  -g   -Wall -Wextra -Wpedantic -Wno-switch-enum -Werror -std=c++17 -o CMakeFiles/program.dir/src/matrix3D.cpp.o -c /home/jakub/Documents/zad4-jszymanski36/src/matrix3D.cpp",
-  "file": "/home/jakub/Documents/zad4-jszymanski36/src/matrix3D.cpp"
-},
-{
-  "directory": "/home/jakub/Documents/zad4-jszymanski36/build",
-  "command": "/usr/bin/c++  -DENABLE_DOCTEST_IN_LIBRARY -I/home/jakub/Documents/zad4-jszymanski36/build -I/home/jakub/Documents/zad4-jszymanski36/inc -I/home/jakub/Documents/zad4-jszymanski36/external/doctest/doctest  -g   -Wall -Wextra -Wpedantic -Wno-switch-enum -Werror -std=c++17 -o CMakeFiles/program.dir/src/vector3D.cpp.o -c /home/jakub/Documents/zad4-jszymanski36/src/vector3D.cpp",
-  "file": "/home/jakub/Documents/zad4-jszymanski36/src/vector3D.cpp"
+  "command": "/usr/bin/c++  -DENABLE_DOCTEST_IN_LIBRARY -I/home/jakub/Documents/zad4-jszymanski36/build -I/home/jakub/Documents/zad4-jszymanski36/inc -I/home/jakub/Documents/zad4-jszymanski36/external/doctest/doctest  -g   -Wall -Wextra -Wpedantic -Wno-switch-enum -Werror -std=c++17 -o CMakeFiles/program.dir/src/cuboid.cpp.o -c /home/jakub/Documents/zad4-jszymanski36/src/cuboid.cpp",
+  "file": "/home/jakub/Documents/zad4-jszymanski36/src/cuboid.cpp"
 },
 {
   "directory": "/home/jakub/Documents/zad4-jszymanski36/build/tests",

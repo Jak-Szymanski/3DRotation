@@ -16,7 +16,6 @@
 #include "example.h"
 #include "matrix3D.hh"
 #include "vector3D.hh"
-#include "matrix.hh"
 
 #include "../inc/lacze_do_gnuplota.hh"
 
@@ -121,19 +120,19 @@ int main() {
   // std::system("cat ../LICENSE");
   // do zadania Rotacja 2D
   std::cout << "Vector:" << std::endl;
-  Vector2D tmpV1 = Vector2D();
+  Vector3D tmpV1 = Vector3D();
   std::cout << "Vector - konstruktor bezparametryczny:\n" << tmpV1 << std::endl;
   double argumentsV[] = {1.0, 2.0};
-  Vector2D tmpV2 = Vector2D(argumentsV);
+  Vector3D tmpV2 = Vector3D(argumentsV);
   std::cout << "Vector - konstruktor parametryczny:\n" << tmpV2 << std::endl;
 
 
   std::cout << "Matrix:" << std::endl;
-  Matrix2D tmpM1;
+  Matrix3D tmpM1;
 
   std::cout << "Matrix - konstruktor bezparametryczny:\n" << tmpM1 << std::endl;
   double argumentsM[SIZE][SIZE] = {{1.0, 2.0},{3.0, 4.0}};
-  Matrix2D tmpM2 = Matrix2D(argumentsM);
+  Matrix3D tmpM2 = Matrix3D(argumentsM);
   std::cout << "Matrix - konstruktor parametryczny:\n" << tmpM2 << std::endl;
 
     PzG::LaczeDoGNUPlota  Lacze;  // Ta zmienna jest potrzebna do wizualizacji
