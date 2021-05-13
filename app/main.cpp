@@ -12,10 +12,10 @@
 #include <fstream>
 #include <string>
 
+#include "cuboid.hh"
 #include "exampleConfig.h"
 #include "example.h"
-#include "matrix3D.hh"
-#include "vector3D.hh"
+
 
 #include "../inc/lacze_do_gnuplota.hh"
 
@@ -119,6 +119,16 @@ int main() {
             << std::endl;
   // std::system("cat ../LICENSE");
   // do zadania Rotacja 2D
+       std::cout << std::endl << "Prostopadłościan:" << std::endl;
+       double Tx[8][SIZE] = {{200,100,50}, {100,100,50}, {200,300,50}, {100,300,50}, {200,300,200}, {100,300,200}, {200,100,200}, {100,100,200}};
+       Cuboid x(Tx);
+       std::cout << x << std::endl;
+
+
+       
+
+
+
   std::cout << "Vector:" << std::endl;
   Vector3D tmpV1 = Vector3D();
   std::cout << "Vector - konstruktor bezparametryczny:\n" << tmpV1 << std::endl;
@@ -144,18 +154,23 @@ int main() {
    //  na dwa sposoby:
    //   1. Rysowane jako linia ciagl o grubosci 2 piksele
    //
-  Lacze.DodajNazwePliku("../datasets/prostokat.dat",PzG::RR_Ciagly,2);
+  Lacze.DodajNazwePliku("../datasets/prostopadloscian.dat",PzG::RR_Ciagly,2);
    //
    //   2. Rysowane jako zbior punktow reprezentowanych przez kwadraty,
    //      których połowa długości boku wynosi 2.
    //
-  Lacze.DodajNazwePliku("../datasets/prostokat.dat",PzG::RR_Punktowy,2);
+/*   Lacze.DodajNazwePliku("../datasets/prostokat.dat",PzG::RR_Punktowy,2); */
    //
    //  Ustawienie trybu rysowania 2D, tzn. rysowany zbiór punktów
    //  znajduje się na wspólnej płaszczyźnie. Z tego powodu powoduj
    //  jako wspolrzedne punktow podajemy tylko x,y.
    //
-  Lacze.ZmienTrybRys(PzG::TR_2D);
+  Lacze.ZmienTrybRys(PzG::TR_3D);
+
+         if(!SaveCubToFile("../datasets/prostopadloscian.dat", x)) return 1;
+       Lacze.Rysuj();
+
+
 
   PrzykladZapisuWspolrzednychDoStrumienia(std::cout,0);
   if (!PrzykladZapisuWspolrzednychDoPliku("../datasets/prostokat.dat",0)) return 1;

@@ -166,33 +166,6 @@ unit_tests/fast:
 	cd /home/jakub/Documents/zad4-jszymanski36/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/build
 .PHONY : unit_tests/fast
 
-dummy.o: dummy.cpp.o
-
-.PHONY : dummy.o
-
-# target to build an object file
-dummy.cpp.o:
-	cd /home/jakub/Documents/zad4-jszymanski36/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/dummy.cpp.o
-.PHONY : dummy.cpp.o
-
-dummy.i: dummy.cpp.i
-
-.PHONY : dummy.i
-
-# target to preprocess a source file
-dummy.cpp.i:
-	cd /home/jakub/Documents/zad4-jszymanski36/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/dummy.cpp.i
-.PHONY : dummy.cpp.i
-
-dummy.s: dummy.cpp.s
-
-.PHONY : dummy.s
-
-# target to generate assembly for a file
-dummy.cpp.s:
-	cd /home/jakub/Documents/zad4-jszymanski36/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/dummy.cpp.s
-.PHONY : dummy.cpp.s
-
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -220,6 +193,33 @@ main.cpp.s:
 	cd /home/jakub/Documents/zad4-jszymanski36/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+test_cuboid.o: test_cuboid.cpp.o
+
+.PHONY : test_cuboid.o
+
+# target to build an object file
+test_cuboid.cpp.o:
+	cd /home/jakub/Documents/zad4-jszymanski36/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_cuboid.cpp.o
+.PHONY : test_cuboid.cpp.o
+
+test_cuboid.i: test_cuboid.cpp.i
+
+.PHONY : test_cuboid.i
+
+# target to preprocess a source file
+test_cuboid.cpp.i:
+	cd /home/jakub/Documents/zad4-jszymanski36/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_cuboid.cpp.i
+.PHONY : test_cuboid.cpp.i
+
+test_cuboid.s: test_cuboid.cpp.s
+
+.PHONY : test_cuboid.s
+
+# target to generate assembly for a file
+test_cuboid.cpp.s:
+	cd /home/jakub/Documents/zad4-jszymanski36/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_cuboid.cpp.s
+.PHONY : test_cuboid.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -232,12 +232,12 @@ help:
 	@echo "... fulltest"
 	@echo "... coverage"
 	@echo "... unit_tests"
-	@echo "... dummy.o"
-	@echo "... dummy.i"
-	@echo "... dummy.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... test_cuboid.o"
+	@echo "... test_cuboid.i"
+	@echo "... test_cuboid.s"
 .PHONY : help
 
 

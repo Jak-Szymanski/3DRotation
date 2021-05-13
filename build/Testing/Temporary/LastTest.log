@@ -1,0 +1,24 @@
+Start testing: May 13 23:08 CEST
+----------------------------------------------------------
+1/1 Testing: program.unit_tests
+1/1 Test: program.unit_tests
+Command: "/home/jakub/Documents/zad4-jszymanski36/build/unit_tests" "-V"
+Directory: /home/jakub/Documents/zad4-jszymanski36/build/tests
+"program.unit_tests" start time: May 13 23:08 CEST
+Output:
+----------------------------------------------------------
+[doctest] doctest version is "2.4.5"
+[doctest] run with "--help" for options
+===============================================================================
+[doctest] test cases: 3 | 3 passed | 0 failed | 0 skipped
+[doctest] assertions: 3 | 3 passed | 0 failed |
+[doctest] Status: SUCCESS!
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"program.unit_tests" end time: May 13 23:08 CEST
+"program.unit_tests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: May 13 23:08 CEST

@@ -16,3 +16,16 @@ CMakeFiles/program.dir/src/example.cpp.o
 CMakeFiles/program.dir/src/lacze_do_gnuplota.cpp.o
  ../inc/lacze_do_gnuplota.hh
  /home/jakub/Documents/zad4-jszymanski36/src/lacze_do_gnuplota.cpp
+CMakeFiles/program.dir/src/matrix3D.cpp.o
+ /home/jakub/Documents/zad4-jszymanski36/inc/matrix.hh
+ /home/jakub/Documents/zad4-jszymanski36/inc/matrix3D.hh
+ /home/jakub/Documents/zad4-jszymanski36/inc/size.hh
+ /home/jakub/Documents/zad4-jszymanski36/inc/vector.hh
+ /home/jakub/Documents/zad4-jszymanski36/inc/vector3D.hh
+ /home/jakub/Documents/zad4-jszymanski36/src/matrix3D.cpp
+CMakeFiles/program.dir/src/vector3D.cpp.o
+ /home/jakub/Documents/zad4-jszymanski36/inc/matrix.hh
+ /home/jakub/Documents/zad4-jszymanski36/inc/size.hh
+ /home/jakub/Documents/zad4-jszymanski36/inc/vector.hh
+ /home/jakub/Documents/zad4-jszymanski36/inc/vector3D.hh
+ /home/jakub/Documents/zad4-jszymanski36/src/vector3D.cpp

@@ -173,32 +173,4 @@ Type &Vector<Type, Size>::operator[](unsigned int index) {
 }
 
 
-/******************************************************************************
- |  Przeciazenie operatora <<                                                 |
- |  Argumenty:                                                                |
- |      out - strumien wejsciowy,                                             |
- |      tmp - wektor.                                                         |
- */
-/* template <typename Type, int Size>
-std::ostream &operator << (std::ostream &out, Vector<Type, Size> const &tmp) {
-    for (int i = 0; i < Size; ++i) {
-        out << "[ " << tmp[i] << " ]\n";
-    }
-    return out;
-} */
 
-
-/******************************************************************************
- |  Przeciazenie operatora >>                                                 |
- |  Argumenty:                                                                |
- |      in - strumien wyjsciowy,                                              |
- |      tmp - wektor.                                                         |
- */
-/* template <typename Type, int Size>
-std::istream &operator >> (std::istream &in, Vector<Type, Size> &tmp) {
-    for (int i = 0; i < Size; ++i) {
-        in >> tmp[i];
-    }
-    std::cout << std::endl;
-    return in;
-} */

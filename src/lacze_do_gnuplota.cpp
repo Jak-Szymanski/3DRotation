@@ -396,7 +396,7 @@ namespace PzG {
   Preambula += ZapiszUstawienieZakresu('y');
   Preambula += ZapiszUstawienieZakresu('z');
   Preambula += ZapiszUstawienieRotacjiISkali();
-  Preambula += "set hidden3d\nsplot ";
+  Preambula += "\nsplot ";
  }
 
 

@@ -1,6 +1,5 @@
 #pragma once
 
-#include "size.hh"
 #include "vector.hh"
 #include <iostream>
 #include <cstdlib>
@@ -153,34 +152,4 @@ Matrix<Type, Size> Matrix<Type, Size>::operator + (Matrix<Type, Size> tmp) {
     return result;
 }
 
-/******************************************************************************
- |  Przeciazenie operatora >>                                                 |
- |  Argumenty:                                                                |
- |      in - strumien wyjsciowy,                                              |
- |      mat - macierz.                                                         |
- */
-/* std::istream &operator>>(std::istream &in, Matrix<Size> &mat) {
-    for (int i = 0; i < Size; ++i) {
-        for (int j = 0; j < Size; ++j) {
-            in >> mat(i, j);
-        }
-    }
-    return in;
-} */
 
-
-/******************************************************************************
- |  Przeciazenie operatora <<                                                 |
- |  Argumenty:                                                                |
- |      out - strumien wejsciowy,                                             |
- |      mat - macierz.                                                        |
- */
-/* std::ostream &operator<<(std::ostream &out, const Matrix<Size> &mat) {
-    for (int i = 0; i < Size; ++i) {
-        for (int j = 0; j < Size; ++j) {
-            out << "| " << mat(i, j) << " | "; //warto ustalic szerokosc wyswietlania dokladnosci liczb
-        }
-        std::cout << std::endl;
-    }
-    return out;
-} */
