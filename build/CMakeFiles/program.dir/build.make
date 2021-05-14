@@ -96,18 +96,18 @@ CMakeFiles/program.dir/src/cuboid.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/program.dir/src/cuboid.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jakub/Documents/zad4-jszymanski36/src/cuboid.cpp -o CMakeFiles/program.dir/src/cuboid.cpp.s
 
-CMakeFiles/program.dir/src/matrix3D.cpp.o: CMakeFiles/program.dir/flags.make
-CMakeFiles/program.dir/src/matrix3D.cpp.o: ../src/matrix3D.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jakub/Documents/zad4-jszymanski36/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/program.dir/src/matrix3D.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/program.dir/src/matrix3D.cpp.o -c /home/jakub/Documents/zad4-jszymanski36/src/matrix3D.cpp
+CMakeFiles/program.dir/src/matrix3x3.cpp.o: CMakeFiles/program.dir/flags.make
+CMakeFiles/program.dir/src/matrix3x3.cpp.o: ../src/matrix3x3.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jakub/Documents/zad4-jszymanski36/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/program.dir/src/matrix3x3.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/program.dir/src/matrix3x3.cpp.o -c /home/jakub/Documents/zad4-jszymanski36/src/matrix3x3.cpp
 
-CMakeFiles/program.dir/src/matrix3D.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/program.dir/src/matrix3D.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jakub/Documents/zad4-jszymanski36/src/matrix3D.cpp > CMakeFiles/program.dir/src/matrix3D.cpp.i
+CMakeFiles/program.dir/src/matrix3x3.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/program.dir/src/matrix3x3.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jakub/Documents/zad4-jszymanski36/src/matrix3x3.cpp > CMakeFiles/program.dir/src/matrix3x3.cpp.i
 
-CMakeFiles/program.dir/src/matrix3D.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/program.dir/src/matrix3D.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jakub/Documents/zad4-jszymanski36/src/matrix3D.cpp -o CMakeFiles/program.dir/src/matrix3D.cpp.s
+CMakeFiles/program.dir/src/matrix3x3.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/program.dir/src/matrix3x3.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jakub/Documents/zad4-jszymanski36/src/matrix3x3.cpp -o CMakeFiles/program.dir/src/matrix3x3.cpp.s
 
 CMakeFiles/program.dir/src/vector3D.cpp.o: CMakeFiles/program.dir/flags.make
 CMakeFiles/program.dir/src/vector3D.cpp.o: ../src/vector3D.cpp
@@ -125,7 +125,7 @@ CMakeFiles/program.dir/src/vector3D.cpp.s: cmake_force
 program: CMakeFiles/program.dir/src/example.cpp.o
 program: CMakeFiles/program.dir/src/lacze_do_gnuplota.cpp.o
 program: CMakeFiles/program.dir/src/cuboid.cpp.o
-program: CMakeFiles/program.dir/src/matrix3D.cpp.o
+program: CMakeFiles/program.dir/src/matrix3x3.cpp.o
 program: CMakeFiles/program.dir/src/vector3D.cpp.o
 program: CMakeFiles/program.dir/build.make
 

@@ -3,6 +3,8 @@
 #include "size.hh"
 #include <iostream>
 
+#define MIN_DIFF 0.01
+
 template <typename Type, int Size>
 class Vector {
 
@@ -16,17 +18,19 @@ public:
 
     Vector(Type [Size]);
 
-    Vector operator + (const Vector<Type, Size> &v);
+    Vector<Type, Size> operator + (const Vector<Type, Size> &v);
 
-    Vector operator - (const Vector<Type, Size> &v);
+    Vector<Type, Size> operator - (const Vector<Type, Size> &v);
 
-    Vector operator * (const Type &tmp);
+    Vector<Type, Size> operator * (const Type &tmp);
 
-    Vector operator / (const Type &tmp);
+    Vector<Type, Size> operator / (const Type &tmp);
 
     const Type &operator [] (unsigned int index) const;
 
     Type &operator [] (unsigned int index);
+
+    bool operator == (const Vector<Type, Size> &v) const;
 
 };
 
@@ -76,12 +80,11 @@ Vector<Type, Size>::Vector(Type tmp[SIZE]) {
  |      na parametr.                                                          |
  */
 template <typename Type, int Size>
-Vector<Type, Size> Vector<Type, Size>::operator + (const Vector &v) {
-    Vector result;
+Vector<Type, Size> Vector<Type, Size>::operator + (const Vector<Type, Size> &v) {
     for (int i = 0; i < Size; ++i) {
-        result[i] = size[i] += v[i];
+        size[i] += v[i];
     }
-    return result;
+    return *this;
 }
 
 
@@ -96,11 +99,10 @@ Vector<Type, Size> Vector<Type, Size>::operator + (const Vector &v) {
  */
 template <typename Type, int Size>
 Vector<Type, Size> Vector<Type, Size>::operator - (const Vector &v) {
-    Vector result;
     for (int i = 0; i < Size; ++i) {
-        result[i] = size[i] -= v[i];
+        size[i] -= v[i];
     }
-    return result;
+    return *this;
 }
 
 
@@ -115,11 +117,10 @@ Vector<Type, Size> Vector<Type, Size>::operator - (const Vector &v) {
  */
 template <typename Type, int Size>
 Vector<Type, Size> Vector<Type, Size>::operator * (const Type &tmp) {
-    Vector result;
     for (int i = 0; i < Size; ++i) {
-        result[i] = size[i] *= tmp;
+        size[i] *= tmp;
     }
-    return result;
+    return *this;
 }
 
 
@@ -134,13 +135,11 @@ Vector<Type, Size> Vector<Type, Size>::operator * (const Type &tmp) {
  */
 template <typename Type, int Size>
 Vector<Type, Size> Vector<Type, Size>::operator / (const Type &tmp) {
-    Vector result;
-
     for (int i = 0; i < Size; ++i) {
-        result[i] = size[i] / tmp;
+        size[i] /= tmp;
     }
 
-    return result;
+    return *this;
 }
 
 
@@ -173,4 +172,13 @@ Type &Vector<Type, Size>::operator[](unsigned int index) {
 }
 
 
+template <typename Type, int Size>
+bool Vector<Type, Size>::operator == (const Vector<Type, Size> &v) const {
+    for (int i = 0; i < Size; ++i){
+        if(abs(size[i] - v[i]) > MIN_DIFF){
+            return 0;
+        }
+    }
+    return 1;     
+}
 

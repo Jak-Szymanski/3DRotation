@@ -6,12 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/jakub/Documents/zad4-jszymanski36/inc/cuboid.hh
-matrix3D.hh
-/home/jakub/Documents/zad4-jszymanski36/inc/matrix3D.hh
-iostream
--
-
 /home/jakub/Documents/zad4-jszymanski36/inc/matrix.hh
 vector.hh
 /home/jakub/Documents/zad4-jszymanski36/inc/vector.hh
@@ -20,7 +14,7 @@ iostream
 cstdlib
 -
 
-/home/jakub/Documents/zad4-jszymanski36/inc/matrix3D.hh
+/home/jakub/Documents/zad4-jszymanski36/inc/matrix3x3.hh
 vector3D.hh
 /home/jakub/Documents/zad4-jszymanski36/inc/vector3D.hh
 
@@ -120,11 +114,11 @@ sys/time.h
 unistd.h
 -
 
-/home/jakub/Documents/zad4-jszymanski36/tests/test_cuboid.cpp
+/home/jakub/Documents/zad4-jszymanski36/tests/test_matrix3x3.cpp
 ../tests/doctest/doctest.h
 /home/jakub/Documents/zad4-jszymanski36/tests/doctest/doctest.h
-../inc/cuboid.hh
-/home/jakub/Documents/zad4-jszymanski36/inc/cuboid.hh
+../inc/matrix3x3.hh
+/home/jakub/Documents/zad4-jszymanski36/inc/matrix3x3.hh
 iostream
 -
 sstream

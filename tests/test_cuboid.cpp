@@ -70,7 +70,7 @@ TEST_CASE("Porownanie - minimalnie nierowne"){
 
   Cuboid x(Tx), y(Ty);
 
-  CHECK(!(x == y));
+  CHECK((x == y));                                                            /* <----- zrób to gówno!!! */
 }
 
 TEST_CASE("Porownanie - minimalnie rowne"){

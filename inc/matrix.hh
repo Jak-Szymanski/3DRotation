@@ -17,16 +17,24 @@ public:
 
     Vector<Type, Size> operator * (Vector<Type, Size> tmp);           // Operator mnożenia przez wektor
 
-    Matrix operator + (Matrix tmp);
+    Matrix<Type, Size> operator * (Matrix<Type, Size> tmp);            // Operator mnożenia przez macierz
+
+    Matrix<Type, Size> operator + (Matrix<Type, Size> tmp);
 
     Type  &operator () (unsigned int row, unsigned int column);
     
     const Type &operator () (unsigned int row, unsigned int column) const;
+
+    bool operator == (const Matrix<Type, Size> &m) const;
+
+    Matrix<Type, Size> RotationMatrix (double degrees, char axis);
 };
 
 std::istream &operator>>(std::istream &in, Matrix<double, SIZE> &mat);
 
 std::ostream &operator<<(std::ostream &out, Matrix<double, SIZE> const &mat);
+
+
 
 
 
@@ -78,6 +86,22 @@ Vector<Type, Size> Matrix<Type, Size>::operator * (Vector<Type, Size> tmp) {
     for (int i = 0; i < Size; ++i) {
         for (int j = 0; j < Size; ++j) {
             result[i] += value[i][j] * tmp[j];
+        }
+    }
+    return result;
+}
+
+
+
+template <typename Type, int Size>
+Matrix<Type, Size> Matrix<Type, Size>::operator * (Matrix<Type, Size> tmp) {
+
+    Matrix<Type, Size> result;
+    for (int i = 0; i < Size; ++i) {
+        for (int j = 0; j < Size; ++j) {
+            for (int k = 0; k < Size; ++k) {
+                result.value[i][j] += value[i][k] * tmp(k, j);
+            }
         }
     }
     return result;
@@ -143,13 +167,22 @@ const Type &Matrix<Type, Size>::operator () (unsigned int row, unsigned int colu
  */
 template <typename Type, int Size>
 Matrix<Type, Size> Matrix<Type, Size>::operator + (Matrix<Type, Size> tmp) {
-    Matrix result;
     for (int i = 0; i < Size; ++i) {
         for (int j = 0; j < Size; ++j) {
-            result(i, j) = this->value[i][j] + tmp(i, j);
+            value[i][j] += tmp(i, j);
         }
     }
-    return result;
+    return *this;
 }
 
-
+template <typename Type, int Size>
+bool Matrix<Type, Size>::operator == (const Matrix<Type, Size> &m) const{
+    for (int i = 0; i < Size; ++i) {
+        for (int j = 0; j < Size; ++j) {
+            if(abs(value[i][j] - m(i, j)) >= MIN_DIFF){
+                return 0;
+            }
+        }
+    }
+    return 1;
+}

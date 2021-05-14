@@ -658,32 +658,32 @@ src/lacze_do_gnuplota.cpp.s:
 	$(MAKE) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/src/lacze_do_gnuplota.cpp.s
 .PHONY : src/lacze_do_gnuplota.cpp.s
 
-src/matrix3D.o: src/matrix3D.cpp.o
+src/matrix3x3.o: src/matrix3x3.cpp.o
 
-.PHONY : src/matrix3D.o
+.PHONY : src/matrix3x3.o
 
 # target to build an object file
-src/matrix3D.cpp.o:
-	$(MAKE) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/src/matrix3D.cpp.o
-.PHONY : src/matrix3D.cpp.o
+src/matrix3x3.cpp.o:
+	$(MAKE) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/src/matrix3x3.cpp.o
+.PHONY : src/matrix3x3.cpp.o
 
-src/matrix3D.i: src/matrix3D.cpp.i
+src/matrix3x3.i: src/matrix3x3.cpp.i
 
-.PHONY : src/matrix3D.i
+.PHONY : src/matrix3x3.i
 
 # target to preprocess a source file
-src/matrix3D.cpp.i:
-	$(MAKE) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/src/matrix3D.cpp.i
-.PHONY : src/matrix3D.cpp.i
+src/matrix3x3.cpp.i:
+	$(MAKE) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/src/matrix3x3.cpp.i
+.PHONY : src/matrix3x3.cpp.i
 
-src/matrix3D.s: src/matrix3D.cpp.s
+src/matrix3x3.s: src/matrix3x3.cpp.s
 
-.PHONY : src/matrix3D.s
+.PHONY : src/matrix3x3.s
 
 # target to generate assembly for a file
-src/matrix3D.cpp.s:
-	$(MAKE) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/src/matrix3D.cpp.s
-.PHONY : src/matrix3D.cpp.s
+src/matrix3x3.cpp.s:
+	$(MAKE) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/src/matrix3x3.cpp.s
+.PHONY : src/matrix3x3.cpp.s
 
 src/vector3D.o: src/vector3D.cpp.o
 
@@ -766,9 +766,9 @@ help:
 	@echo "... src/lacze_do_gnuplota.o"
 	@echo "... src/lacze_do_gnuplota.i"
 	@echo "... src/lacze_do_gnuplota.s"
-	@echo "... src/matrix3D.o"
-	@echo "... src/matrix3D.i"
-	@echo "... src/matrix3D.s"
+	@echo "... src/matrix3x3.o"
+	@echo "... src/matrix3x3.i"
+	@echo "... src/matrix3x3.s"
 	@echo "... src/vector3D.o"
 	@echo "... src/vector3D.i"
 	@echo "... src/vector3D.s"

@@ -7,8 +7,8 @@
 #IncludeRegexTransform: 
 
 ../inc/cuboid.hh
-matrix3D.hh
-../inc/matrix3D.hh
+matrix3x3.hh
+../inc/matrix3x3.hh
 iostream
 -
 
@@ -24,7 +24,7 @@ iostream
 cstdlib
 -
 
-../inc/matrix3D.hh
+../inc/matrix3x3.hh
 vector3D.hh
 ../inc/vector3D.hh
 
@@ -52,6 +52,8 @@ stdlib.h
 fstream
 -
 string
+-
+unistd.h
 -
 cuboid.hh
 /home/jakub/Documents/zad4-jszymanski36/app/cuboid.hh

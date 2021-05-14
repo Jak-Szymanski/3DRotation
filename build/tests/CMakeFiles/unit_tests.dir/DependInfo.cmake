@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/jakub/Documents/zad4-jszymanski36/tests/main.cpp" "/home/jakub/Documents/zad4-jszymanski36/build/tests/CMakeFiles/unit_tests.dir/main.cpp.o"
   "/home/jakub/Documents/zad4-jszymanski36/tests/test_cuboid.cpp" "/home/jakub/Documents/zad4-jszymanski36/build/tests/CMakeFiles/unit_tests.dir/test_cuboid.cpp.o"
+  "/home/jakub/Documents/zad4-jszymanski36/tests/test_matrix3x3.cpp" "/home/jakub/Documents/zad4-jszymanski36/build/tests/CMakeFiles/unit_tests.dir/test_matrix3x3.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -41,7 +41,7 @@ set(SOURCES          # All .cpp files in src/
     src/example.cpp
     src/lacze_do_gnuplota.cpp
     src/cuboid.cpp
-    src/matrix3D.cpp
+    src/matrix3x3.cpp
     src/vector3D.cpp
 )
 set(TESTFILES        # All .cpp files in tests/

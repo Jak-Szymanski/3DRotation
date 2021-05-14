@@ -12,6 +12,9 @@
 #include <fstream>
 #include <string>
 
+
+#include<unistd.h>                       /*  usun to  */
+
 #include "cuboid.hh"
 #include "exampleConfig.h"
 #include "example.h"
@@ -120,7 +123,7 @@ int main() {
   // std::system("cat ../LICENSE");
   // do zadania Rotacja 2D
        std::cout << std::endl << "Prostopadłościan:" << std::endl;
-       double Tx[8][SIZE] = {{200,100,50}, {100,100,50}, {200,300,50}, {100,300,50}, {200,300,200}, {100,300,200}, {200,100,200}, {100,100,200}};
+       double Tx[8][SIZE] = {{200,100,50}, {100,100,50}, {200,300,50}, {100,300,50}, {200,300,100}, {100,300,100}, {200,100,100}, {100,100,100}};
        Cuboid x(Tx);
        std::cout << x << std::endl;
 
@@ -138,11 +141,11 @@ int main() {
 
 
   std::cout << "Matrix:" << std::endl;
-  Matrix3D tmpM1;
+  Matrix3x3 tmpM1;
 
   std::cout << "Matrix - konstruktor bezparametryczny:\n" << tmpM1 << std::endl;
   double argumentsM[SIZE][SIZE] = {{1.0, 2.0},{3.0, 4.0}};
-  Matrix3D tmpM2 = Matrix3D(argumentsM);
+  Matrix3x3 tmpM2 = Matrix3x3(argumentsM);
   std::cout << "Matrix - konstruktor parametryczny:\n" << tmpM2 << std::endl;
 
     PzG::LaczeDoGNUPlota  Lacze;  // Ta zmienna jest potrzebna do wizualizacji
@@ -169,7 +172,19 @@ int main() {
 
          if(!SaveCubToFile("../datasets/prostopadloscian.dat", x)) return 1;
        Lacze.Rysuj();
+         std::cout << "Naciśnij ENTER, aby kontynuowac" << std::endl;
+  std::cin.ignore(100000,'\n');
 
+  Matrix3x3 rot;
+  rot.RotationMatrix(1,'y');
+
+
+       for(int k=0;k<360;k++){
+         x.Rotate(rot, 1);
+          if(!SaveCubToFile("../datasets/prostopadloscian.dat", x)) return 1;
+       Lacze.Rysuj();     
+       usleep(10000);          
+       }
 
 
   PrzykladZapisuWspolrzednychDoStrumienia(std::cout,0);

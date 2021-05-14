@@ -1,7 +1,7 @@
 #ifndef CUBOID_HH
 #define CUBOID_HH
 
-#include "matrix3D.hh"
+#include "matrix3x3.hh"
 #include <iostream>
 
 #define MIN_DIFF  0.01
@@ -25,7 +25,7 @@ class Cuboid{
 
     bool operator == (const Cuboid &cub) const;
 
-    Cuboid Rotate(double degrees, int iterations);
+    Cuboid Rotate(Matrix3x3 rotation, int iterations);
 
     void CompareSides();
     
