@@ -25,6 +25,8 @@ size.hh
 /home/jakub/Documents/zad4-jszymanski36/inc/size.hh
 iostream
 -
+math.h
+-
 
 /home/jakub/Documents/zad4-jszymanski36/inc/vector3D.hh
 matrix.hh
@@ -32,6 +34,8 @@ matrix.hh
 
 /home/jakub/Documents/zad4-jszymanski36/src/matrix3x3.cpp
 cmath
+-
+iomanip
 -
 ../inc/matrix3x3.hh
 /home/jakub/Documents/zad4-jszymanski36/inc/matrix3x3.hh

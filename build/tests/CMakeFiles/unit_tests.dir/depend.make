@@ -23,3 +23,10 @@ tests/CMakeFiles/unit_tests.dir/test_matrix3x3.cpp.o: ../inc/vector3D.hh
 tests/CMakeFiles/unit_tests.dir/test_matrix3x3.cpp.o: ../tests/doctest/doctest.h
 tests/CMakeFiles/unit_tests.dir/test_matrix3x3.cpp.o: ../tests/test_matrix3x3.cpp
 
+tests/CMakeFiles/unit_tests.dir/test_vector3D.cpp.o: ../inc/matrix.hh
+tests/CMakeFiles/unit_tests.dir/test_vector3D.cpp.o: ../inc/size.hh
+tests/CMakeFiles/unit_tests.dir/test_vector3D.cpp.o: ../inc/vector.hh
+tests/CMakeFiles/unit_tests.dir/test_vector3D.cpp.o: ../inc/vector3D.hh
+tests/CMakeFiles/unit_tests.dir/test_vector3D.cpp.o: ../tests/doctest/doctest.h
+tests/CMakeFiles/unit_tests.dir/test_vector3D.cpp.o: ../tests/test_vector3D.cpp
+

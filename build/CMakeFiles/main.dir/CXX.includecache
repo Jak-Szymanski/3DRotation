@@ -35,6 +35,8 @@ size.hh
 ../inc/size.hh
 iostream
 -
+math.h
+-
 
 ../inc/vector3D.hh
 matrix.hh

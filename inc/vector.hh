@@ -2,6 +2,7 @@
 
 #include "size.hh"
 #include <iostream>
+#include <math.h>
 
 #define MIN_DIFF 0.01
 
@@ -31,6 +32,8 @@ public:
     Type &operator [] (unsigned int index);
 
     bool operator == (const Vector<Type, Size> &v) const;
+
+    double Distance (const Vector<Type, Size> &v1, const Vector<Type, Size> &v2);
 
 };
 
@@ -153,8 +156,8 @@ Vector<Type, Size> Vector<Type, Size>::operator / (const Type &tmp) {
 template <typename Type, int Size>
 const Type &Vector<Type, Size>::operator [] (unsigned int index) const {
     if (index >= Size) {
-        std::cerr << "Error: Wektor jest poza zasiegiem!" << std::endl;
-    } // lepiej byłoby rzucić wyjątkiem stdexcept
+        throw std::runtime_error("Error: Wektor jest poza zasiegiem \n");
+    }
     return size[index];
 }
 
@@ -182,3 +185,16 @@ bool Vector<Type, Size>::operator == (const Vector<Type, Size> &v) const {
     return 1;     
 }
 
+
+
+template <typename Type, int Size>
+double Distance (const Vector<Type, Size> &v1, const Vector<Type, Size> &v2){
+
+    double result = 0;
+
+    for (int i = 0; i < Size; ++i){
+        result += pow((v1[i] - v2[i]),2);
+    }
+    result = sqrt(result);
+    return result; 
+}

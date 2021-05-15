@@ -66,11 +66,11 @@ TEST_CASE("Operator () - kolumna poza zasięgiem na minus"){
 TEST_CASE("Porownanie - minimalnie nierowne"){
 
   double Tx[8][SIZE] = {{1,1,1}, {1,1,1}, {1,1,1}, {1,1,1}, {1,1,1}, {1,1,1}, {1,1,1}, {1,1,1}};
-  double Ty[8][SIZE] = {{1,1,1.01}, {1,1,1}, {1,1,1}, {1,1,1}, {1,1,1}, {1,1,1}, {1,1,1}, {1,1,1}};
+  double Ty[8][SIZE] = {{1,1,1}, {1,1,1}, {1,1,1}, {1,1,1}, {1,1,1}, {1,1,1}, {1,1,1}, {1,1,1.01}};
 
   Cuboid x(Tx), y(Ty);
 
-  CHECK((x == y));                                                            /* <----- zrób to gówno!!! */
+  CHECK(!(x == y));                                                 
 }
 
 TEST_CASE("Porownanie - minimalnie rowne"){
@@ -79,6 +79,32 @@ TEST_CASE("Porownanie - minimalnie rowne"){
   double Ty[8][SIZE] = {{1,1,1}, {1,1,1}, {1,1,1}, {1,1,1}, {1,1,1}, {1,1,1}, {1,1,1}, {1,1,1.009}};
 
   Cuboid x(Tx), y(Ty);
+
+  CHECK(x == y);
+}
+
+TEST_CASE("Przesunięcie"){
+
+  double Tx[8][SIZE] = {{1,0,1}, {2,3,2}, {1,0,2}, {2,3,1}, {2,3,2}, {1,0,1}, {2,3,2}, {2,3,1}};
+  double Ty[8][SIZE] = {{2,1,2}, {3,4,3}, {2,1,3}, {3,4,2}, {3,4,3}, {2,1,2}, {3,4,3}, {3,4,2}};
+  double Tv[SIZE] = {1,1,1};
+
+  Cuboid x(Tx), y(Ty);
+  Vector3D v(Tv);
+
+  x.Move(v);
+
+  CHECK(x == y);
+}
+
+TEST_CASE("Przesunięcie o zero"){
+
+  double Tx[8][SIZE] = {{1,0,1}, {2,3,2}, {1,0,2}, {2,3,1}, {2,3,2}, {1,0,1}, {2,3,2}, {2,3,1}};
+  
+  Cuboid x(Tx), y(Tx);
+  Vector3D v;
+
+  x.Move(v);
 
   CHECK(x == y);
 }

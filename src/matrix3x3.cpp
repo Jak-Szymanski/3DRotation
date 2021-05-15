@@ -1,4 +1,5 @@
 #include <cmath>
+#include <iomanip>
 
 #include "../inc/matrix3x3.hh"
 
@@ -31,9 +32,9 @@ std::istream &operator>>(std::istream &in, Matrix3x3 &mat) {
 std::ostream &operator<<(std::ostream &out, const Matrix3x3 &mat) {
     for (int i = 0; i < SIZE; ++i) {
         for (int j = 0; j < SIZE; ++j) {
-            out << "| " << mat(i, j) << " | "; //warto ustalic szerokosc wyswietlania dokladnosci liczb
+            out << std::fixed << std::setprecision(10) <<"| " << mat(i, j) << " | ";
         }
-        std::cout << std::endl;
+        out << std::endl;
     }
     return out;
 }

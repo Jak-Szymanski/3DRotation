@@ -1,5 +1,4 @@
-#ifndef CUBOID_HH
-#define CUBOID_HH
+#pragma once
 
 #include "matrix3x3.hh"
 #include <iostream>
@@ -29,10 +28,14 @@ class Cuboid{
 
     void CompareSides();
     
-    Cuboid Move(Vector3D v);
+    Cuboid Move(const Vector3D v);
 };
 
 std::ostream &operator<<(std::ostream &out, Cuboid const &cub);
+
 bool SaveCubToFile(const char *FileName, Cuboid &cub);
 
-#endif
+void PrintComparison(double Largest[4], double Middle[4], double Smallest[4]);
+
+bool CompareArray(double Array[4]);
+

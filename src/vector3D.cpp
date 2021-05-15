@@ -1,4 +1,5 @@
 #include "../inc/vector3D.hh"
+#include <iomanip>
 
 /******************************************************************************
  |  Przeciazenie operatora <<                                                 |
@@ -8,7 +9,7 @@
  */
 std::ostream &operator << (std::ostream &out, Vector3D const &tmp) {
     for (int i = 0; i < SIZE; ++i) {
-        out << "[ " << tmp[i] << " ]\n";
+        out << std::fixed << std::setprecision(10) << "[ " << tmp[i] << " ]\n";
     }
     return out;
 }

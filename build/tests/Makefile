@@ -247,6 +247,33 @@ test_matrix3x3.cpp.s:
 	cd /home/jakub/Documents/zad4-jszymanski36/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_matrix3x3.cpp.s
 .PHONY : test_matrix3x3.cpp.s
 
+test_vector3D.o: test_vector3D.cpp.o
+
+.PHONY : test_vector3D.o
+
+# target to build an object file
+test_vector3D.cpp.o:
+	cd /home/jakub/Documents/zad4-jszymanski36/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_vector3D.cpp.o
+.PHONY : test_vector3D.cpp.o
+
+test_vector3D.i: test_vector3D.cpp.i
+
+.PHONY : test_vector3D.i
+
+# target to preprocess a source file
+test_vector3D.cpp.i:
+	cd /home/jakub/Documents/zad4-jszymanski36/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_vector3D.cpp.i
+.PHONY : test_vector3D.cpp.i
+
+test_vector3D.s: test_vector3D.cpp.s
+
+.PHONY : test_vector3D.s
+
+# target to generate assembly for a file
+test_vector3D.cpp.s:
+	cd /home/jakub/Documents/zad4-jszymanski36/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_vector3D.cpp.s
+.PHONY : test_vector3D.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -268,6 +295,9 @@ help:
 	@echo "... test_matrix3x3.o"
 	@echo "... test_matrix3x3.i"
 	@echo "... test_matrix3x3.s"
+	@echo "... test_vector3D.o"
+	@echo "... test_vector3D.i"
+	@echo "... test_vector3D.s"
 .PHONY : help
 
 

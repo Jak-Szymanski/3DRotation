@@ -120,13 +120,11 @@ template <typename Type, int Size>
 Type &Matrix<Type, Size>::operator()(unsigned int row, unsigned int column) {
 
     if (row >= Size) {
-        std::cout << "Error: Macierz jest poza zasiegiem"; 
-        exit(0); // lepiej byłoby rzucić wyjątkiem stdexcept
+        throw std::runtime_error("Error: Macierz jest poza zasiegiem \n");
     }
 
     if (column >= Size) {
-        std::cout << "Error: Macierz jest poza zasiegiem";
-        exit(0); // lepiej byłoby rzucić wyjątkiem stdexcept
+        throw std::runtime_error("Error: Macierz jest poza zasiegiem \n");
     }
 
     return value[row][column];
@@ -145,13 +143,11 @@ template <typename Type, int Size>
 const Type &Matrix<Type, Size>::operator () (unsigned int row, unsigned int column) const {
 
     if (row >= Size) {
-        std::cout << "Error: Macierz jest poza zasiegiem";
-        exit(0); // lepiej byłoby rzucić wyjątkiem stdexcept
+        throw std::runtime_error("Error: Macierz jest poza zasiegiem \n");
     }
 
     if (column >= Size) {
-        std::cout << "Error: Macierz jest poza zasiegiem";
-        exit(0); // lepiej byłoby rzucić wyjątkiem stdexcept
+        throw std::runtime_error("Error: Macierz jest poza zasiegiem \n");
     }
 
     return value[row][column];

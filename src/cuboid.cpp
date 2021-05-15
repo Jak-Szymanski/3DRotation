@@ -65,14 +65,13 @@ const double &Cuboid::operator () (unsigned int row, unsigned int column) const 
 bool Cuboid::operator == (const Cuboid &cub) const{
   for(int i=0; i<8; i++){
     for(int j=0; j<SIZE; j++){
-      if(abs(Points[i][j] - cub(i, j) >= MIN_DIFF)){
+      if(abs(Points[i][j] - cub(i, j)) >= MIN_DIFF){
         return 0;
       }
     }
   }
   return 1; 
 }
-
 
 Cuboid Cuboid::Rotate(Matrix3x3 rotation, int iterations){
 
@@ -83,6 +82,14 @@ Cuboid Cuboid::Rotate(Matrix3x3 rotation, int iterations){
   }
 
   return *this;
+}
+
+Cuboid Cuboid::Move(const Vector3D v){
+  
+  for(int i=0; i<8; i++){
+    Points[i] = Points[i] + v;
+  }
+  return *this;  
 }
 
 
@@ -120,4 +127,23 @@ bool SaveCubToFile(const char *FileName, Cuboid &cub){
   file << cub;
   file.close();
   return !file.fail();
+}
+
+void Cuboid::CompareSides(){
+  
+  double a[4] = {Distance(Points[1],Points[3]), Distance(Points[2],Points[4]), Distance(Points[5],Points[7]),Distance(Points[6],Points[8])};
+  double b[4] = {Distance(Points[1],Points[7]), Distance(Points[2],Points[8]), Distance(Points[5],Points[3]),Distance(Points[6],Points[4])};
+  double c[4] = {Distance(Points[1],Points[2]), Distance(Points[3],Points[4]), Distance(Points[5],Points[6]),Distance(Points[7],Points[8])};
+}
+
+bool CompareArray(double Array[4]){
+  
+  for(int i = 0; i < 3; i++){
+    for(int j = i+1; j < 4; j++){
+      if(abs(Array[i] - Array[j]) >= MIN_DIFF){
+        return 0;
+      }
+    }
+  }
+  return 1;
 }
