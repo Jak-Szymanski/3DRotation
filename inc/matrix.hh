@@ -28,6 +28,8 @@ public:
     bool operator == (const Matrix<Type, Size> &m) const;
 
     Matrix<Type, Size> RotationMatrix (double degrees, char axis);
+
+    Matrix<Type, Size> IdentityMatrix();
 };
 
 std::istream &operator>>(std::istream &in, Matrix<double, SIZE> &mat);
@@ -181,4 +183,20 @@ bool Matrix<Type, Size>::operator == (const Matrix<Type, Size> &m) const{
         }
     }
     return 1;
+}
+
+
+template <typename Type, int Size>
+Matrix<Type, Size> Matrix<Type, Size>::IdentityMatrix(){
+
+    for (int i = 0; i < Size; ++i){
+        for (int j = 0; j < Size; ++j){
+            if(i == j){
+                value[i][j] = 1;
+            } else {
+                value[i][j] = 0;
+            }
+        }
+    }
+    return *this;
 }

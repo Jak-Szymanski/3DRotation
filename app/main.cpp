@@ -22,96 +22,20 @@
 
 #include "../inc/lacze_do_gnuplota.hh"
 
-/*!
- * Simple main program that demontrates how access
- * CMake definitions (here the version number) from source code.
- * 
- * EDIT: dodane kreowanie wektorow i macierzy plus obsluga lacza do gnuplota
- */
+void PrintMenu(){
 
-#define DL_KROTKI_BOK  100
-#define DL_DLUGI_BOK   150
-
-/*!
- * Przyklad zapisu wspolrzednych zbioru punktow do strumienia wyjściowego.
- * Dane sa odpowiednio sformatowane, tzn. przyjęto notację stałoprzecinkową
- * z dokładnością do 10 miejsca po przecinku. Szerokość wyświetlanego pola 
- * to 16 miejsc, sposób wyrównywania - do prawej strony.
- * \param[in] StrmWy - strumien wyjsciowy, do ktorego maja zostac zapisane
- *                     kolejne wspolrzedne.
- * \param[in] Przesuniecie - ten parameter jest tylko po to, aby pokazać
- *                          mozliwosc zmiany wspolrzednych i prostokata
- *                          i zmiane jego polorzenia na okienku graficznym
- *                         rysownym przez gnuplota.
- * \retval true - gdy operacja zapisu powiodła się,
- * \retval false - w przypadku przeciwnym.
- */
-void PrzykladZapisuWspolrzednychDoStrumienia( std::ostream&     StrmWy, 
-                                              double       Przesuniecie
-                                            )
-{
-   //---------------------------------------------------------------
-   // To tylko przyklad !!!
-   // W programie nalezy uzywać pojęcia wektora, a nie oddzielnych 
-   // zmiennych do reprezentowania wspolrzednych!
-   //
-  double  x1, y1, x2, y2, x3, y3, x4, y4; 
-
-  x1 = y1 = 10;
-  x2 = x1 + DL_DLUGI_BOK;  y2 = y1;
-  x3 = x2;  y3 = y2 + DL_KROTKI_BOK;
-  x4 = x3 - DL_DLUGI_BOK; y4 = y3;
-
-
-  StrmWy << std::setw(16) << std::fixed << std::setprecision(10) << x1+Przesuniecie 
-         << std::setw(16) << std::fixed << std::setprecision(10) << y1+Przesuniecie << std::endl;
-  StrmWy << std::setw(16) << std::fixed << std::setprecision(10) << x2+Przesuniecie 
-         << std::setw(16) << std::fixed << std::setprecision(10) << y2+Przesuniecie << std::endl;
-  StrmWy << std::setw(16) << std::fixed << std::setprecision(10) << x3+Przesuniecie 
-         << std::setw(16) << std::fixed << std::setprecision(10) << y3+Przesuniecie << std::endl;
-  StrmWy << std::setw(16) << std::fixed << std::setprecision(10) << x4+Przesuniecie 
-         << std::setw(16) << std::fixed << std::setprecision(10) << y4+Przesuniecie << std::endl;
-  StrmWy << std::setw(16) << std::fixed << std::setprecision(10) << x1+Przesuniecie 
-         << std::setw(16) << std::fixed << std::setprecision(10) << y1+Przesuniecie << std::endl; 
-                             // Jeszcze raz zapisujemy pierwszy punkt,
-                             // aby gnuplot narysowal zamkniętą linię.
-}
-
-
-
-/*!
- * Przyklad zapisu wspolrzednych zbioru punktow do pliku, z ktorego
- * dane odczyta program gnuplot i narysuje je w swoim oknie graficznym.
- * \param[in] sNazwaPliku - nazwa pliku, do którego zostana zapisane
- *                          wspolrzędne punktów.
- * \param[in] Przesuniecie - ten parameter jest tylko po to, aby pokazać
- *                          mozliwosc zmiany wspolrzednych i prostokata
- *                          i zmiane jego polorzenia na okienku graficznym
- *                         rysownym przez gnuplota.
- * \retval true - gdy operacja zapisu powiodła się,
- * \retval false - w przypadku przeciwnym.
- */
-bool PrzykladZapisuWspolrzednychDoPliku( const char  *sNazwaPliku,
-                                         double       Przesuniecie
-                                       )
-{
-  std::ofstream  StrmPlikowy;
-
-  StrmPlikowy.open(sNazwaPliku);
-  if (!StrmPlikowy.is_open())  {
-    std::cerr << ":(  Operacja otwarcia do zapisu \"" << sNazwaPliku << "\"" << std::endl
-	 << ":(  nie powiodla sie." << std::endl;
-    return false;
-  }
-
-  PrzykladZapisuWspolrzednychDoStrumienia(StrmPlikowy, Przesuniecie);
-
-  StrmPlikowy.close();
-  return !StrmPlikowy.fail();
+  std::cout << std::endl << "o - obrot bryly o zadana sekwencje katow" << std::endl;
+  std::cout << "t - powtorzenie poprzedniego obrotu" << std::endl;
+  std::cout << "r - wyswietlenie macierzy rotacji" << std::endl;
+  std::cout << "p - przesuniecie bryly o zadany wektor" << std::endl;
+  std::cout << "w - wyswietlenie wspolrzednych wierzcholkow" << std::endl;
+  std::cout << "s - sprawdzenie dlugosci przeciwleglych bokow" << std::endl;
+  std::cout << "m - wyswietl menu" << std::endl;
+  std::cout << "k - koniec dzialania programu" << std::endl << std::endl;
 }
 
 int main() {
-  std::cout << "Project Rotation 2D based on C++ Boiler Plate v"
+  std::cout << "Project Rotation 3D based on C++ Boiler Plate v"
             << PROJECT_VERSION_MAJOR /*duże zmiany, najczęściej brak kompatybilności wstecz */
             << "."
             << PROJECT_VERSION_MINOR /* istotne zmiany */
@@ -120,33 +44,6 @@ int main() {
             << "."
             << PROJECT_VERSION_TWEAK /* zmiany estetyczne itd. */
             << std::endl;
-  // std::system("cat ../LICENSE");
-  // do zadania Rotacja 2D
-       std::cout << std::endl << "Prostopadłościan:" << std::endl;
-       double Tx[8][SIZE] = {{200,100,50}, {100,100,50}, {200,300,50}, {100,300,50}, {200,300,100}, {100,300,100}, {200,100,100}, {100,100,100}};
-       Cuboid x(Tx);
-       std::cout << x << std::endl;
-
-
-       
-
-
-
-  std::cout << "Vector:" << std::endl;
-  Vector3D tmpV1 = Vector3D();
-  std::cout << "Vector - konstruktor bezparametryczny:\n" << tmpV1 << std::endl;
-  double argumentsV[] = {1.0, 2.0};
-  Vector3D tmpV2 = Vector3D(argumentsV);
-  std::cout << "Vector - konstruktor parametryczny:\n" << tmpV2 << std::endl;
-
-
-  std::cout << "Matrix:" << std::endl;
-  Matrix3x3 tmpM1;
-
-  std::cout << "Matrix - konstruktor bezparametryczny:\n" << tmpM1 << std::endl;
-  double argumentsM[SIZE][SIZE] = {{1.0, 2.0},{3.0, 4.0}};
-  Matrix3x3 tmpM2 = Matrix3x3(argumentsM);
-  std::cout << "Matrix - konstruktor parametryczny:\n" << tmpM2 << std::endl;
 
     PzG::LaczeDoGNUPlota  Lacze;  // Ta zmienna jest potrzebna do wizualizacji
                                 // rysunku prostokata
@@ -170,40 +67,97 @@ int main() {
    //
   Lacze.ZmienTrybRys(PzG::TR_3D);
 
-         if(!SaveCubToFile("../datasets/prostopadloscian.dat", x)) return 1;
-       Lacze.Rysuj();
-         std::cout << "Naciśnij ENTER, aby kontynuowac" << std::endl;
-  std::cin.ignore(100000,'\n');
+  char choice;
+  int iterations;
+  Matrix3x3 MatRot;
+  std::cout << std::endl << "Prostopadłościan:" << std::endl;
+  double T_Cub[8][SIZE] = {{200,100,50}, {100,100,50}, {200,300,50}, {100,300,50}, {200,300,100}, {100,300,100}, {200,100,100}, {100,100,100}};
+  Cuboid Cub(T_Cub);
+  std::cout << Cub << std::endl << std::endl;
+  Cub.CompareSides();
+  PrintMenu();
 
-  Matrix3x3 rot;
-  rot.RotationMatrix(1,'y');
+  if(!SaveCubToFile("../datasets/prostopadloscian.dat", Cub)) return 1;
+  Lacze.Rysuj();
 
+  while(choice!='k'){
+    std::cout << "Twoj wybor? (m - menu) > ";
+    std::cin >> choice;
+      switch(choice){
+        
+        case 'o':{
+          char axis;
+          double degrees;
+          MatRot.IdentityMatrix();
+          std::cout << "Podaj sekwencje oznaczen osi oraz katy obrotu w stopniach" << std::endl;
+          std::cin >> axis;
+          while(axis != '.'){
+            std::cin >> degrees;
+            if(axis == 'x' || axis == 'y' || axis == 'z'){
+              MatRot.RotationMatrix(degrees, axis);
+            } else {
+              std::cout << ":( Bledne oznaczenie osi. Dopuszczalne znaki to: x y z ." << std::endl;
+              std::cout << ":( Sprobuj jeszcze raz." << std::endl;
+            }
+            std::cin >> axis;
+          }
+          std::cout << std::endl << "Ile razy operacja obrotu ma byc powtorzona?" << std::endl;
+          std::cin >> iterations;
+          Cub.Rotate(MatRot, iterations);
+          Cub.CompareSides();
+          if(!SaveCubToFile("../datasets/prostopadloscian.dat", Cub)) return 1;
+          Lacze.Rysuj();
+        break;
+        }
 
-       for(int k=0;k<360;k++){
-         x.Rotate(rot, 1);
-          if(!SaveCubToFile("../datasets/prostopadloscian.dat", x)) return 1;
-       Lacze.Rysuj();     
-       usleep(10000);          
-       }
+        case 't':
+          std::cout << "Powtorzono ostatni obrot" << std::endl << std::endl;
+          Cub.Rotate(MatRot, iterations);
+          Cub.CompareSides();
+          if(!SaveCubToFile("../datasets/prostopadloscian.dat", Cub)) return 1;
+          Lacze.Rysuj();          
+        break;
 
+        case 'r':
+          std::cout << "Macierz ostatniej rotacji: " << std::endl << MatRot << std::endl;
+        break;
 
-  PrzykladZapisuWspolrzednychDoStrumienia(std::cout,0);
-  if (!PrzykladZapisuWspolrzednychDoPliku("../datasets/prostokat.dat",0)) return 1;
-  Lacze.Rysuj(); // <- Tutaj gnuplot rysuje, to co zapisaliśmy do pliku
-  std::cout << "Naciśnij ENTER, aby kontynuowac" << std::endl;
-  std::cin.ignore(100000,'\n');
-   //----------------------------------------------------------
-   // Ponownie wypisuje wspolrzedne i rysuje prostokąt w innym miejscu.
-   //
-  PrzykladZapisuWspolrzednychDoStrumienia(std::cout,50);
-  if (!PrzykladZapisuWspolrzednychDoPliku("../datasets/prostokat.dat",50)) return 1;
-  Lacze.Rysuj(); // <- Tutaj gnuplot rysuje, to co zapisaliśmy do pliku
-  std::cout << "Naciśnij ENTER, aby kontynuowac" << std::endl;
-  std::cin.ignore(100000,'\n');
+        case 'p':{
+          double x, y, z;
+          std::cout <<  "Wprowadz wspolrzedne wektora translacji w postaci trzech liczb" << std::endl;       
+          std::cout << "tzn. wspolrzednej x, wspolrzednej y oraz wspolrzednej z" << std::endl;
+          std::cin >> x >> y >> z;
+          std::cout << std::endl;
+          double T_Vector[SIZE] = {x, y, z};
+          Vector3D Vector(T_Vector);
 
-  // Z bazy projektu-wydmuszki Boiler Plate C++:
-  // Bring in the dummy class from the example source,
-  // just to show that it is accessible from main.cpp.
-  Dummy d = Dummy();
-  return d.doSomething() ? 0 : -1;
+          Cub.Move(Vector);
+          Cub.CompareSides();
+          if(!SaveCubToFile("../datasets/prostopadloscian.dat", Cub)) return 1;
+          Lacze.Rysuj();
+        break;
+        }
+
+        case 'w':
+          std::cout << "Wspolrzedne wierzcholkow: " << std::endl << std::endl << Cub << std::endl;
+        break;
+
+        case 's':
+          Cub.CompareSides();
+        break;
+
+        case 'm':
+          PrintMenu();
+        break;
+
+        case 'k':
+        std::cout << "Koniec działania programu." << std::endl;
+        break;
+
+        default:
+        std::cout << "Nieprawidlowy wybor opcji" << std::endl;
+        break;
+        }
+      }  
+  return 0;
 }

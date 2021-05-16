@@ -116,61 +116,89 @@ TEST_CASE("Porownanie - minimalnie rowne"){
   CHECK(x == y);
 }
 
+TEST_CASE("Macierz jednostkowa - pusta macierz"){
+
+  double Ti[SIZE][SIZE] = {{1,0,0},{0,1,0},{0,0,1}};
+  Matrix3x3 i(Ti), x;
+
+  x.IdentityMatrix();
+
+  CHECK(x == i);
+}
+
+TEST_CASE("Macierz jednostkowa - niepusta macierz"){
+
+  double Ti[SIZE][SIZE] = {{1,0,0},{0,1,0},{0,0,1}};
+    double Tx[SIZE][SIZE] = {{-7,0,1},{4,5,-2},{1,-5,0}};
+  Matrix3x3 i(Ti), x(Tx);
+
+  x.IdentityMatrix();
+
+  CHECK(x == i); 
+}
+
 TEST_CASE("Macierz obrotu 90 stopni oś x"){
 
   double Tx[SIZE][SIZE] = {{1,0,0},{0,0,-1},{0,1,0}};
-  Matrix3x3 y, x(Tx);
-  y.RotationMatrix(90,'x');
+  Matrix3x3 i, x(Tx);
+  i.IdentityMatrix();
+  i.RotationMatrix(90,'x');
 
-  CHECK(x == y); 
+  CHECK(i == x); 
 }
 
 TEST_CASE("Macierz obrotu 90 stopni oś y"){
 
   double Tx[SIZE][SIZE] = {{0,0,1},{0,1,0},{-1,0,0}};
-  Matrix3x3 y, x(Tx);
-  y.RotationMatrix(90,'y');
+  Matrix3x3 i, x(Tx);
+  
+  i.IdentityMatrix();
+  i.RotationMatrix(90,'y');
 
-  CHECK(x == y); 
+  CHECK(i == x); 
 }
 
 TEST_CASE("Macierz obrotu 90 stopni oś z"){
 
   double Tx[SIZE][SIZE] = {{0,-1,0},{1,0,0},{0,0,1}};
-  Matrix3x3 y, x(Tx);
-  y.RotationMatrix(90,'z');
+  Matrix3x3 i, x(Tx);
+  
+  i.IdentityMatrix();
+  i.RotationMatrix(90,'z');
 
-  CHECK(x == y); 
+  CHECK(i == x); 
 }
 
 TEST_CASE("Macierz obrotu 50 stopni oś x * -50 stopni oś x"){
   
-  double Tz[SIZE][SIZE] = {{1,0,0},{0,1,0},{0,0,1}};
-  Matrix3x3 x, y, z(Tz);
-  x.RotationMatrix(50, 'x');
-  y.RotationMatrix(-50, 'x');
+  double Tx[SIZE][SIZE] = {{-7,0,1},{4,5,-2},{1,-5,0}};
+  Matrix3x3 x(Tx), y(Tx);
 
-  CHECK(x * y == z);
+  x.RotationMatrix(50, 'x');
+  x.RotationMatrix(-50, 'x');
+
+  CHECK(x == y);
 }
 
 TEST_CASE("Macierz obrotu 50 stopni oś y * -50 stopni oś y"){
   
-  double Tz[SIZE][SIZE] = {{1,0,0},{0,1,0},{0,0,1}};
-  Matrix3x3 x, y, z(Tz);
+  double Tx[SIZE][SIZE] = {{-7,0,1},{4,5,-2},{1,-5,0}};
+  Matrix3x3 x(Tx), y(Tx);
   x.RotationMatrix(50, 'y');
-  y.RotationMatrix(-50, 'y');
+  x.RotationMatrix(-50, 'y');
 
-  CHECK(x * y == z);
+  CHECK(x == y);
 }
 
 TEST_CASE("Macierz obrotu 50 stopni oś z * -50 stopni oś z"){
   
-  double Tz[SIZE][SIZE] = {{1,0,0},{0,1,0},{0,0,1}};
-  Matrix3x3 x, y, z(Tz);
-  x.RotationMatrix(50, 'z');
-  y.RotationMatrix(-50, 'z');
+  double Tx[SIZE][SIZE] = {{-7,0,1},{4,5,-2},{1,-5,0}};
+  Matrix3x3 x(Tx), y(Tx);
 
-  CHECK(x * y == z);
+  x.RotationMatrix(50, 'z');
+  x.RotationMatrix(-50, 'z');
+
+  CHECK(x == y);
 }
 
 TEST_CASE("Wyświetlanie"){

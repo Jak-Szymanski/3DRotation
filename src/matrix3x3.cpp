@@ -9,7 +9,7 @@
  |  Przeciazenie operatora >>                                                 |
  |  Argumenty:                                                                |
  |      in - strumien wyjsciowy,                                              |
- |      mat - macierz.                                                         |
+ |      mat - macierz.                                                        |
  */
 
 std::istream &operator>>(std::istream &in, Matrix3x3 &mat) {
@@ -43,32 +43,33 @@ std::ostream &operator<<(std::ostream &out, const Matrix3x3 &mat) {
 template<>
 Matrix3x3 Matrix3x3::RotationMatrix(double degrees, char axis) {
     double radians = degrees * (PI/180);
+    Matrix3x3 tmp;
 
     switch(axis){
         case 'x':{
-            value[0][1]=value[0][2]=value[1][0]=value[2][0]=0;
-            value[0][0]=1;
-            value[1][1]=value[2][2]=cos(radians);
-            value[1][2]=-sin(radians);
-            value[2][1]=sin(radians);
+            tmp.value[0][1]=tmp.value[0][2]=tmp.value[1][0]=tmp.value[2][0]=0;
+            tmp.value[0][0]=1;
+            tmp.value[1][1]=tmp.value[2][2]=cos(radians);
+            tmp.value[1][2]=-sin(radians);
+            tmp.value[2][1]=sin(radians);
         }
         break;
 
         case 'y':{
-            value[0][1]=value[1][0]=value[1][2]=value[2][1]=0;
-            value[1][1]=1;
-            value[0][0]=value[2][2]=cos(radians); 
-            value[0][2]=sin(radians);
-            value[2][0]=-sin(radians);    
+            tmp.value[0][1]=tmp.value[1][0]=tmp.value[1][2]=tmp.value[2][1]=0;
+            tmp.value[1][1]=1;
+            tmp.value[0][0]=tmp.value[2][2]=cos(radians); 
+            tmp.value[0][2]=sin(radians);
+            tmp.value[2][0]=-sin(radians);    
         }
         break;
 
         case 'z':{
-            value[2][0]=value[2][1]=value[0][2]=value[1][2]=0;
-            value[2][2]=1;
-            value[0][0]=value[1][1]=cos(radians);
-            value[1][0]=sin(radians);
-            value[0][1]=-sin(radians);
+            tmp.value[2][0]=tmp.value[2][1]=tmp.value[0][2]=tmp.value[1][2]=0;
+            tmp.value[2][2]=1;
+            tmp.value[0][0]=tmp.value[1][1]=cos(radians);
+            tmp.value[1][0]=sin(radians);
+            tmp.value[0][1]=-sin(radians);
         }
         break;
 
@@ -76,5 +77,6 @@ Matrix3x3 Matrix3x3::RotationMatrix(double degrees, char axis) {
         throw std::runtime_error("Error: Niepoprawna oś obrotu \n");
         break;
     }
+    *this = tmp * *this;
     return *this;
 }

@@ -35,7 +35,8 @@ std::ostream &operator<<(std::ostream &out, Cuboid const &cub);
 
 bool SaveCubToFile(const char *FileName, Cuboid &cub);
 
-void PrintComparison(double Largest[4], double Middle[4], double Smallest[4]);
+void PrintComparison(double Largest[4], double Medium[4], double Smallest[4]);
 
 bool CompareArray(double Array[4]);
 
+void PrintLengths(double Array[4]);
