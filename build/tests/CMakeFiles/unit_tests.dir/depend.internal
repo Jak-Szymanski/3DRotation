@@ -10,6 +10,7 @@ tests/CMakeFiles/unit_tests.dir/test_cuboid.cpp.o
  /home/jakub/Documents/zad4-jszymanski36/inc/cuboid.hh
  /home/jakub/Documents/zad4-jszymanski36/inc/matrix.hh
  /home/jakub/Documents/zad4-jszymanski36/inc/matrix3x3.hh
+ /home/jakub/Documents/zad4-jszymanski36/inc/matrix4x4.hh
  /home/jakub/Documents/zad4-jszymanski36/inc/size.hh
  /home/jakub/Documents/zad4-jszymanski36/inc/vector.hh
  /home/jakub/Documents/zad4-jszymanski36/inc/vector3D.hh
@@ -23,6 +24,15 @@ tests/CMakeFiles/unit_tests.dir/test_matrix3x3.cpp.o
  /home/jakub/Documents/zad4-jszymanski36/inc/vector3D.hh
  /home/jakub/Documents/zad4-jszymanski36/tests/doctest/doctest.h
  /home/jakub/Documents/zad4-jszymanski36/tests/test_matrix3x3.cpp
+tests/CMakeFiles/unit_tests.dir/test_matrix4x4.cpp.o
+ /home/jakub/Documents/zad4-jszymanski36/inc/matrix.hh
+ /home/jakub/Documents/zad4-jszymanski36/inc/matrix3x3.hh
+ /home/jakub/Documents/zad4-jszymanski36/inc/matrix4x4.hh
+ /home/jakub/Documents/zad4-jszymanski36/inc/size.hh
+ /home/jakub/Documents/zad4-jszymanski36/inc/vector.hh
+ /home/jakub/Documents/zad4-jszymanski36/inc/vector3D.hh
+ /home/jakub/Documents/zad4-jszymanski36/tests/doctest/doctest.h
+ /home/jakub/Documents/zad4-jszymanski36/tests/test_matrix4x4.cpp
 tests/CMakeFiles/unit_tests.dir/test_vector3D.cpp.o
  /home/jakub/Documents/zad4-jszymanski36/inc/matrix.hh
  /home/jakub/Documents/zad4-jszymanski36/inc/size.hh

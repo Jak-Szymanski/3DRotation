@@ -247,6 +247,33 @@ test_matrix3x3.cpp.s:
 	cd /home/jakub/Documents/zad4-jszymanski36/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_matrix3x3.cpp.s
 .PHONY : test_matrix3x3.cpp.s
 
+test_matrix4x4.o: test_matrix4x4.cpp.o
+
+.PHONY : test_matrix4x4.o
+
+# target to build an object file
+test_matrix4x4.cpp.o:
+	cd /home/jakub/Documents/zad4-jszymanski36/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_matrix4x4.cpp.o
+.PHONY : test_matrix4x4.cpp.o
+
+test_matrix4x4.i: test_matrix4x4.cpp.i
+
+.PHONY : test_matrix4x4.i
+
+# target to preprocess a source file
+test_matrix4x4.cpp.i:
+	cd /home/jakub/Documents/zad4-jszymanski36/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_matrix4x4.cpp.i
+.PHONY : test_matrix4x4.cpp.i
+
+test_matrix4x4.s: test_matrix4x4.cpp.s
+
+.PHONY : test_matrix4x4.s
+
+# target to generate assembly for a file
+test_matrix4x4.cpp.s:
+	cd /home/jakub/Documents/zad4-jszymanski36/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_matrix4x4.cpp.s
+.PHONY : test_matrix4x4.cpp.s
+
 test_vector3D.o: test_vector3D.cpp.o
 
 .PHONY : test_vector3D.o
@@ -295,6 +322,9 @@ help:
 	@echo "... test_matrix3x3.o"
 	@echo "... test_matrix3x3.i"
 	@echo "... test_matrix3x3.s"
+	@echo "... test_matrix4x4.o"
+	@echo "... test_matrix4x4.i"
+	@echo "... test_matrix4x4.s"
 	@echo "... test_vector3D.o"
 	@echo "... test_vector3D.i"
 	@echo "... test_vector3D.s"

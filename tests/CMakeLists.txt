@@ -6,6 +6,7 @@ set(TESTFILES        # All .cpp files in tests/
     test_cuboid.cpp
     test_matrix3x3.cpp
     test_vector3D.cpp
+    test_matrix4x4.cpp
 )
 
 set(TEST_MAIN unit_tests)   # Default name for test executable (change if you wish).

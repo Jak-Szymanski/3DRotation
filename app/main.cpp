@@ -77,6 +77,14 @@ int main() {
   Cub.CompareSides();
   PrintMenu();
 
+
+
+              double Ty[4][4] = {{0,-1,0,1}, {0,0,-1,2}, {1,0,0,3}, {0,0,0,1}};
+              Matrix4x4 y(Ty);
+              std::cout << y << std::endl << std::endl;
+
+
+
   if(!SaveCubToFile("../datasets/prostopadloscian.dat", Cub)) return 1;
   Lacze.Rysuj();
 

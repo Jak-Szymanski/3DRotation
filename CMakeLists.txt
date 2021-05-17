@@ -43,12 +43,14 @@ set(SOURCES          # All .cpp files in src/
     src/cuboid.cpp
     src/matrix3x3.cpp
     src/vector3D.cpp
+    src/matrix4x4.cpp
 )
 set(TESTFILES        # All .cpp files in tests/
     tests/main.cpp
     tests/test_cuboid.cpp
     tests/test_matrix3x3.cpp
     tests/test_vector3D.cpp
+    tests/test_matrix4x4.cpp
 )
 set(LIBRARY_NAME program)  # Default name for the library built from src/*.cpp (change if you wish)
 

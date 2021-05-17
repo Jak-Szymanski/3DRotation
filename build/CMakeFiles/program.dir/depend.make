@@ -4,6 +4,7 @@
 CMakeFiles/program.dir/src/cuboid.cpp.o: ../inc/cuboid.hh
 CMakeFiles/program.dir/src/cuboid.cpp.o: ../inc/matrix.hh
 CMakeFiles/program.dir/src/cuboid.cpp.o: ../inc/matrix3x3.hh
+CMakeFiles/program.dir/src/cuboid.cpp.o: ../inc/matrix4x4.hh
 CMakeFiles/program.dir/src/cuboid.cpp.o: ../inc/size.hh
 CMakeFiles/program.dir/src/cuboid.cpp.o: ../inc/vector.hh
 CMakeFiles/program.dir/src/cuboid.cpp.o: ../inc/vector3D.hh
@@ -22,6 +23,14 @@ CMakeFiles/program.dir/src/matrix3x3.cpp.o: ../inc/size.hh
 CMakeFiles/program.dir/src/matrix3x3.cpp.o: ../inc/vector.hh
 CMakeFiles/program.dir/src/matrix3x3.cpp.o: ../inc/vector3D.hh
 CMakeFiles/program.dir/src/matrix3x3.cpp.o: ../src/matrix3x3.cpp
+
+CMakeFiles/program.dir/src/matrix4x4.cpp.o: ../inc/matrix.hh
+CMakeFiles/program.dir/src/matrix4x4.cpp.o: ../inc/matrix3x3.hh
+CMakeFiles/program.dir/src/matrix4x4.cpp.o: ../inc/matrix4x4.hh
+CMakeFiles/program.dir/src/matrix4x4.cpp.o: ../inc/size.hh
+CMakeFiles/program.dir/src/matrix4x4.cpp.o: ../inc/vector.hh
+CMakeFiles/program.dir/src/matrix4x4.cpp.o: ../inc/vector3D.hh
+CMakeFiles/program.dir/src/matrix4x4.cpp.o: ../src/matrix4x4.cpp
 
 CMakeFiles/program.dir/src/vector3D.cpp.o: ../inc/matrix.hh
 CMakeFiles/program.dir/src/vector3D.cpp.o: ../inc/size.hh

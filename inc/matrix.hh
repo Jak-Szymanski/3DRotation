@@ -1,6 +1,7 @@
 #pragma once
 
 #include "vector.hh"
+#include "vector3D.hh"
 #include <iostream>
 #include <cstdlib>
 
@@ -27,14 +28,18 @@ public:
 
     bool operator == (const Matrix<Type, Size> &m) const;
 
-    Matrix<Type, Size> RotationMatrix (double degrees, char axis);
+    void RotationMatrix (double degrees, char axis);
 
-    Matrix<Type, Size> IdentityMatrix();
+    void IdentityMatrix();
+
+    void RotationMatrix4x4(double alpha, double beta, double gamma, Vector<double, SIZE> transl);
 };
 
 std::istream &operator>>(std::istream &in, Matrix<double, SIZE> &mat);
 
 std::ostream &operator<<(std::ostream &out, Matrix<double, SIZE> const &mat);
+
+std::ostream &operator<<(std::ostream &out, Matrix<double, 4> const &mat);
 
 
 
@@ -187,7 +192,7 @@ bool Matrix<Type, Size>::operator == (const Matrix<Type, Size> &m) const{
 
 
 template <typename Type, int Size>
-Matrix<Type, Size> Matrix<Type, Size>::IdentityMatrix(){
+void Matrix<Type, Size>::IdentityMatrix(){
 
     for (int i = 0; i < Size; ++i){
         for (int j = 0; j < Size; ++j){
@@ -198,5 +203,4 @@ Matrix<Type, Size> Matrix<Type, Size>::IdentityMatrix(){
             }
         }
     }
-    return *this;
 }

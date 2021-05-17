@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/jakub/Documents/zad4-jszymanski36/tests/main.cpp" "/home/jakub/Documents/zad4-jszymanski36/build/tests/CMakeFiles/unit_tests.dir/main.cpp.o"
   "/home/jakub/Documents/zad4-jszymanski36/tests/test_cuboid.cpp" "/home/jakub/Documents/zad4-jszymanski36/build/tests/CMakeFiles/unit_tests.dir/test_cuboid.cpp.o"
   "/home/jakub/Documents/zad4-jszymanski36/tests/test_matrix3x3.cpp" "/home/jakub/Documents/zad4-jszymanski36/build/tests/CMakeFiles/unit_tests.dir/test_matrix3x3.cpp.o"
+  "/home/jakub/Documents/zad4-jszymanski36/tests/test_matrix4x4.cpp" "/home/jakub/Documents/zad4-jszymanski36/build/tests/CMakeFiles/unit_tests.dir/test_matrix4x4.cpp.o"
   "/home/jakub/Documents/zad4-jszymanski36/tests/test_vector3D.cpp" "/home/jakub/Documents/zad4-jszymanski36/build/tests/CMakeFiles/unit_tests.dir/test_vector3D.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

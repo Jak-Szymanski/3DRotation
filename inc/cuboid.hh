@@ -1,6 +1,6 @@
 #pragma once
 
-#include "matrix3x3.hh"
+#include "matrix4x4.hh"
 #include <iostream>
 
 #define MIN_DIFF  0.01
@@ -24,11 +24,11 @@ class Cuboid{
 
     bool operator == (const Cuboid &cub) const;
 
-    Cuboid Rotate(Matrix3x3 rotation, int iterations);
+    void Rotate(Matrix3x3 rotation, int iterations);
 
     void CompareSides();
     
-    Cuboid Move(const Vector3D v);
+    void Move(const Vector3D v);
 };
 
 std::ostream &operator<<(std::ostream &out, Cuboid const &cub);

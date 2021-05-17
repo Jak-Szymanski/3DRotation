@@ -41,7 +41,7 @@ std::ostream &operator<<(std::ostream &out, const Matrix3x3 &mat) {
 
 
 template<>
-Matrix3x3 Matrix3x3::RotationMatrix(double degrees, char axis) {
+void Matrix3x3::RotationMatrix(double degrees, char axis) {
     double radians = degrees * (PI/180);
     Matrix3x3 tmp;
 
@@ -78,5 +78,4 @@ Matrix3x3 Matrix3x3::RotationMatrix(double degrees, char axis) {
         break;
     }
     *this = tmp * *this;
-    return *this;
 }

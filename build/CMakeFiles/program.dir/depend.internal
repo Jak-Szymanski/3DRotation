@@ -5,6 +5,7 @@ CMakeFiles/program.dir/src/cuboid.cpp.o
  /home/jakub/Documents/zad4-jszymanski36/inc/cuboid.hh
  /home/jakub/Documents/zad4-jszymanski36/inc/matrix.hh
  /home/jakub/Documents/zad4-jszymanski36/inc/matrix3x3.hh
+ /home/jakub/Documents/zad4-jszymanski36/inc/matrix4x4.hh
  /home/jakub/Documents/zad4-jszymanski36/inc/size.hh
  /home/jakub/Documents/zad4-jszymanski36/inc/vector.hh
  /home/jakub/Documents/zad4-jszymanski36/inc/vector3D.hh
@@ -23,6 +24,14 @@ CMakeFiles/program.dir/src/matrix3x3.cpp.o
  /home/jakub/Documents/zad4-jszymanski36/inc/vector.hh
  /home/jakub/Documents/zad4-jszymanski36/inc/vector3D.hh
  /home/jakub/Documents/zad4-jszymanski36/src/matrix3x3.cpp
+CMakeFiles/program.dir/src/matrix4x4.cpp.o
+ /home/jakub/Documents/zad4-jszymanski36/inc/matrix.hh
+ /home/jakub/Documents/zad4-jszymanski36/inc/matrix3x3.hh
+ /home/jakub/Documents/zad4-jszymanski36/inc/matrix4x4.hh
+ /home/jakub/Documents/zad4-jszymanski36/inc/size.hh
+ /home/jakub/Documents/zad4-jszymanski36/inc/vector.hh
+ /home/jakub/Documents/zad4-jszymanski36/inc/vector3D.hh
+ /home/jakub/Documents/zad4-jszymanski36/src/matrix4x4.cpp
 CMakeFiles/program.dir/src/vector3D.cpp.o
  /home/jakub/Documents/zad4-jszymanski36/inc/matrix.hh
  /home/jakub/Documents/zad4-jszymanski36/inc/size.hh
