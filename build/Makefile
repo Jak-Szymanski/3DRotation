@@ -712,6 +712,33 @@ src/matrix4x4.cpp.s:
 	$(MAKE) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/src/matrix4x4.cpp.s
 .PHONY : src/matrix4x4.cpp.s
 
+src/scene.o: src/scene.cpp.o
+
+.PHONY : src/scene.o
+
+# target to build an object file
+src/scene.cpp.o:
+	$(MAKE) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/src/scene.cpp.o
+.PHONY : src/scene.cpp.o
+
+src/scene.i: src/scene.cpp.i
+
+.PHONY : src/scene.i
+
+# target to preprocess a source file
+src/scene.cpp.i:
+	$(MAKE) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/src/scene.cpp.i
+.PHONY : src/scene.cpp.i
+
+src/scene.s: src/scene.cpp.s
+
+.PHONY : src/scene.s
+
+# target to generate assembly for a file
+src/scene.cpp.s:
+	$(MAKE) -f CMakeFiles/program.dir/build.make CMakeFiles/program.dir/src/scene.cpp.s
+.PHONY : src/scene.cpp.s
+
 src/vector3D.o: src/vector3D.cpp.o
 
 .PHONY : src/vector3D.o
@@ -799,6 +826,9 @@ help:
 	@echo "... src/matrix4x4.o"
 	@echo "... src/matrix4x4.i"
 	@echo "... src/matrix4x4.s"
+	@echo "... src/scene.o"
+	@echo "... src/scene.i"
+	@echo "... src/scene.s"
 	@echo "... src/vector3D.o"
 	@echo "... src/vector3D.i"
 	@echo "... src/vector3D.s"

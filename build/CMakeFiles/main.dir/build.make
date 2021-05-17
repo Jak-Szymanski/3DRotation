@@ -81,7 +81,8 @@ main_EXTERNAL_OBJECTS = \
 "/home/jakub/Documents/zad4-jszymanski36/build/CMakeFiles/program.dir/src/cuboid.cpp.o" \
 "/home/jakub/Documents/zad4-jszymanski36/build/CMakeFiles/program.dir/src/matrix3x3.cpp.o" \
 "/home/jakub/Documents/zad4-jszymanski36/build/CMakeFiles/program.dir/src/vector3D.cpp.o" \
-"/home/jakub/Documents/zad4-jszymanski36/build/CMakeFiles/program.dir/src/matrix4x4.cpp.o"
+"/home/jakub/Documents/zad4-jszymanski36/build/CMakeFiles/program.dir/src/matrix4x4.cpp.o" \
+"/home/jakub/Documents/zad4-jszymanski36/build/CMakeFiles/program.dir/src/scene.cpp.o"
 
 main: CMakeFiles/main.dir/app/main.cpp.o
 main: CMakeFiles/program.dir/src/example.cpp.o
@@ -90,6 +91,7 @@ main: CMakeFiles/program.dir/src/cuboid.cpp.o
 main: CMakeFiles/program.dir/src/matrix3x3.cpp.o
 main: CMakeFiles/program.dir/src/vector3D.cpp.o
 main: CMakeFiles/program.dir/src/matrix4x4.cpp.o
+main: CMakeFiles/program.dir/src/scene.cpp.o
 main: CMakeFiles/main.dir/build.make
 main: CMakeFiles/main.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jakub/Documents/zad4-jszymanski36/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable main"

@@ -2,13 +2,15 @@
 
 #include "matrix4x4.hh"
 #include <iostream>
+#include <vector>
 
 #define MIN_DIFF  0.01
 
 class Cuboid{
 
   private:
-    Vector3D Points[8];
+  
+    std::vector<Vector3D> Points;
 
   public:
 

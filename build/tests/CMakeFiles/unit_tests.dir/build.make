@@ -137,7 +137,8 @@ unit_tests_EXTERNAL_OBJECTS = \
 "/home/jakub/Documents/zad4-jszymanski36/build/CMakeFiles/program.dir/src/cuboid.cpp.o" \
 "/home/jakub/Documents/zad4-jszymanski36/build/CMakeFiles/program.dir/src/matrix3x3.cpp.o" \
 "/home/jakub/Documents/zad4-jszymanski36/build/CMakeFiles/program.dir/src/vector3D.cpp.o" \
-"/home/jakub/Documents/zad4-jszymanski36/build/CMakeFiles/program.dir/src/matrix4x4.cpp.o"
+"/home/jakub/Documents/zad4-jszymanski36/build/CMakeFiles/program.dir/src/matrix4x4.cpp.o" \
+"/home/jakub/Documents/zad4-jszymanski36/build/CMakeFiles/program.dir/src/scene.cpp.o"
 
 unit_tests: tests/CMakeFiles/unit_tests.dir/main.cpp.o
 unit_tests: tests/CMakeFiles/unit_tests.dir/test_cuboid.cpp.o
@@ -150,6 +151,7 @@ unit_tests: CMakeFiles/program.dir/src/cuboid.cpp.o
 unit_tests: CMakeFiles/program.dir/src/matrix3x3.cpp.o
 unit_tests: CMakeFiles/program.dir/src/vector3D.cpp.o
 unit_tests: CMakeFiles/program.dir/src/matrix4x4.cpp.o
+unit_tests: CMakeFiles/program.dir/src/scene.cpp.o
 unit_tests: tests/CMakeFiles/unit_tests.dir/build.make
 unit_tests: tests/CMakeFiles/unit_tests.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jakub/Documents/zad4-jszymanski36/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable ../unit_tests"

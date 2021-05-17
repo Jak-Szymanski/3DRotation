@@ -11,6 +11,8 @@ matrix4x4.hh
 ../inc/matrix4x4.hh
 iostream
 -
+vector
+-
 
 ../inc/example.h
 ../tests/doctest/doctest.h
@@ -33,6 +35,14 @@ vector3D.hh
 ../inc/matrix4x4.hh
 matrix3x3.hh
 ../inc/matrix3x3.hh
+
+../inc/scene.hh
+cuboid.hh
+../inc/cuboid.hh
+iostream
+-
+vector
+-
 
 ../inc/size.hh
 
@@ -63,8 +73,8 @@ string
 -
 unistd.h
 -
-cuboid.hh
-/home/jakub/Documents/zad4-jszymanski36/app/cuboid.hh
+scene.hh
+/home/jakub/Documents/zad4-jszymanski36/app/scene.hh
 exampleConfig.h
 /home/jakub/Documents/zad4-jszymanski36/app/exampleConfig.h
 example.h

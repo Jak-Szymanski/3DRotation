@@ -8,28 +8,27 @@
 #define MIN_DIFF  0.01
 
 Cuboid::Cuboid(){
-  for(int i=0; i<8; i++){
-    for(int j=0; j<SIZE; j++){
-      Points[i][j] = 0;
-    }
+  Points.reserve(8);
+  for(int i = 0; i < 8; ++i){
+    Points.push_back(Vector3D());
   }
 }
 
 
 Cuboid::Cuboid(const Cuboid &cub){
+  Points.reserve(8);
   for(int i=0; i<8; i++){
-    for(int j=0; j<SIZE; j++){
-      Points[i][j] = cub(i, j);
-    }
+      Points.push_back(cub.Points[i]);
   }
 }
 
 
 Cuboid::Cuboid(double tmp[8][SIZE]){
+
+  Points.reserve(8);
   for (int i = 0; i < 8; ++i) {
-    for (int j = 0; j < SIZE; ++j) {
-      Points[i][j] = tmp[i][j];
-    }
+    Vector3D v(tmp[i]);
+    Points.push_back(v);
   }
 }
 
@@ -91,9 +90,9 @@ void Cuboid::Move(const Vector3D v){
 
 
 std::ostream &operator<<(std::ostream &out, Cuboid const &cub){
-  int i, j;
-  for(i=0; i<8; i++){
-    for(j=0; j<SIZE; j++){
+
+  for(int i=0; i<8; i++){
+    for(int j=0; j<SIZE; j++){
       out << std::fixed << std::setprecision(10) << cub(i, j) << "\t";
     }
     out << std::endl;
@@ -102,8 +101,8 @@ std::ostream &operator<<(std::ostream &out, Cuboid const &cub){
     }
   }
   
-  for(i=0; i<2; i++){
-    for(j=0; j<SIZE; j++){
+  for(int i=0; i<2; i++){
+    for(int j=0; j<SIZE; j++){
         out << std::fixed << std::setprecision(10) << cub(i, j) << "\t";
       }
       out << std::endl;

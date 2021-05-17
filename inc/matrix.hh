@@ -28,7 +28,7 @@ public:
 
     bool operator == (const Matrix<Type, Size> &m) const;
 
-    void RotationMatrix (double degrees, char axis);
+    void RotationMatrix (Vector<double, SIZE> degrees);
 
     void IdentityMatrix();
 

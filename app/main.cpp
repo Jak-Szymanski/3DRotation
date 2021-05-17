@@ -15,7 +15,7 @@
 
 #include<unistd.h>                       /*  usun to  */
 
-#include "cuboid.hh"
+#include "scene.hh"
 #include "exampleConfig.h"
 #include "example.h"
 
@@ -54,7 +54,7 @@ int main() {
    //  na dwa sposoby:
    //   1. Rysowane jako linia ciagl o grubosci 2 piksele
    //
-  Lacze.DodajNazwePliku("../datasets/prostopadloscian.dat",PzG::RR_Ciagly,2);
+  Lacze.DodajNazwePliku("../datasets/globalcoords.dat",PzG::RR_Ciagly,2);
    //
    //   2. Rysowane jako zbior punktow reprezentowanych przez kwadraty,
    //      których połowa długości boku wynosi 2.
@@ -71,21 +71,15 @@ int main() {
   int iterations;
   Matrix3x3 MatRot;
   std::cout << std::endl << "Prostopadłościan:" << std::endl;
-  double T_Cub[8][SIZE] = {{200,100,50}, {100,100,50}, {200,300,50}, {100,300,50}, {200,300,100}, {100,300,100}, {200,100,100}, {100,100,100}};
+  double T_Cub[8][SIZE] = {{-70,-50,-100}, {70,-50,-100}, {-70,50,-100}, {70,50,-100}, {-70,50,100}, {70,50,100}, {-70,-50,100}, {70,-50,100}};
   Cuboid Cub(T_Cub);
   std::cout << Cub << std::endl << std::endl;
   Cub.CompareSides();
+  Scene Scene("../datasets/globalcoords.dat", "../datasets/localcoords.dat");
+
+  if(!SaveCubToFile("../datasets/localcoords.dat", Cub)) return 1;
+  if(!Scene.CalcGlobalCoords()) return 1;
   PrintMenu();
-
-
-
-              double Ty[4][4] = {{0,-1,0,1}, {0,0,-1,2}, {1,0,0,3}, {0,0,0,1}};
-              Matrix4x4 y(Ty);
-              std::cout << y << std::endl << std::endl;
-
-
-
-  if(!SaveCubToFile("../datasets/prostopadloscian.dat", Cub)) return 1;
   Lacze.Rysuj();
 
   while(choice!='k'){
@@ -95,25 +89,38 @@ int main() {
         
         case 'o':{
           char axis;
-          double degrees;
+          double degrees_input;
+          Vector3D degrees;
           MatRot.IdentityMatrix();
           std::cout << "Podaj sekwencje oznaczen osi oraz katy obrotu w stopniach" << std::endl;
           std::cin >> axis;
           while(axis != '.'){
-            std::cin >> degrees;
-            if(axis == 'x' || axis == 'y' || axis == 'z'){
-              MatRot.RotationMatrix(degrees, axis);
-            } else {
-              std::cout << ":( Bledne oznaczenie osi. Dopuszczalne znaki to: x y z ." << std::endl;
-              std::cout << ":( Sprobuj jeszcze raz." << std::endl;
+            std::cin >> degrees_input;
+            switch(axis){
+              
+              case 'x':
+              degrees[0] += degrees_input;
+              break;
+
+              case 'y':
+              degrees[1] += degrees_input;
+              break;
+
+              case 'z':
+              degrees[2] += degrees_input;
+              break;
+
+              default:
+                std::cout << ":( Bledne oznaczenie osi. Dopuszczalne znaki to: x y z ." << std::endl;
+                std::cout << ":( Sprobuj jeszcze raz." << std::endl;
             }
             std::cin >> axis;
           }
           std::cout << std::endl << "Ile razy operacja obrotu ma byc powtorzona?" << std::endl;
           std::cin >> iterations;
-          Cub.Rotate(MatRot, iterations);
-          Cub.CompareSides();
-          if(!SaveCubToFile("../datasets/prostopadloscian.dat", Cub)) return 1;
+          degrees = degrees * iterations;
+          Scene.ChangeAngles(degrees);
+          if(!Scene.CalcGlobalCoords()) return 1;
           Lacze.Rysuj();
         break;
         }
