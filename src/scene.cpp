@@ -4,29 +4,29 @@
 #include <iomanip> 
 #include <fstream> 
 
-Scene::Scene(const std::string global, const std::string local){
+Scene::Scene(double coords[8][SIZE], const std::string global){
 
+  LocalCoords = Cuboid(coords);
   FileNameGlobalCoords = global;
-  FileNameLocalCoords = local;
+/*   FileNameLocalCoords = local; */
   Translation = Vector3D();
   Angles = Vector3D();
 }
 
 bool Scene::CalcGlobalCoords(){
 
-  std::ifstream in(FileNameLocalCoords);
   std::ofstream out(FileNameGlobalCoords);
-  Vector3D Point;
   Matrix3x3 RotMat;
+  Cuboid GlobalCoords(LocalCoords);
 
-  if(!in.is_open() || !out.is_open()) return false;
+  if(!out.is_open()) return false;
 
   RotMat.RotationMatrix(Angles);
-  for(int i = 0; i < 8; ++i){
-    in >> Point;
-    out << (RotMat * Point + Translation) << std::endl;
-  }
-  return !in.fail() && !out.fail();
+  GlobalCoords.Rotate(RotMat);
+  GlobalCoords.Move(Translation);
+
+  out << GlobalCoords;
+  return !out.fail();
 }
 
 void Scene::ChangeAngles(const Vector3D angle_diff){
@@ -34,3 +34,18 @@ void Scene::ChangeAngles(const Vector3D angle_diff){
   Angles = Angles + angle_diff;
 }
 
+void Scene::ChangeTranslation(const Vector3D new_transl){
+
+  Translation = Translation + new_transl;
+}
+
+void Scene::PrintGlobalCoords(){
+
+  Matrix3x3 RotMat;
+  Cuboid GlobalCoords(LocalCoords);  
+
+  RotMat.RotationMatrix(Angles);
+  GlobalCoords.Rotate(RotMat);
+  GlobalCoords.Move(Translation);
+  std::cout << GlobalCoords << std::endl;
+}

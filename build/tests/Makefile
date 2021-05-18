@@ -193,114 +193,6 @@ main.cpp.s:
 	cd /home/jakub/Documents/zad4-jszymanski36/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-test_cuboid.o: test_cuboid.cpp.o
-
-.PHONY : test_cuboid.o
-
-# target to build an object file
-test_cuboid.cpp.o:
-	cd /home/jakub/Documents/zad4-jszymanski36/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_cuboid.cpp.o
-.PHONY : test_cuboid.cpp.o
-
-test_cuboid.i: test_cuboid.cpp.i
-
-.PHONY : test_cuboid.i
-
-# target to preprocess a source file
-test_cuboid.cpp.i:
-	cd /home/jakub/Documents/zad4-jszymanski36/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_cuboid.cpp.i
-.PHONY : test_cuboid.cpp.i
-
-test_cuboid.s: test_cuboid.cpp.s
-
-.PHONY : test_cuboid.s
-
-# target to generate assembly for a file
-test_cuboid.cpp.s:
-	cd /home/jakub/Documents/zad4-jszymanski36/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_cuboid.cpp.s
-.PHONY : test_cuboid.cpp.s
-
-test_matrix3x3.o: test_matrix3x3.cpp.o
-
-.PHONY : test_matrix3x3.o
-
-# target to build an object file
-test_matrix3x3.cpp.o:
-	cd /home/jakub/Documents/zad4-jszymanski36/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_matrix3x3.cpp.o
-.PHONY : test_matrix3x3.cpp.o
-
-test_matrix3x3.i: test_matrix3x3.cpp.i
-
-.PHONY : test_matrix3x3.i
-
-# target to preprocess a source file
-test_matrix3x3.cpp.i:
-	cd /home/jakub/Documents/zad4-jszymanski36/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_matrix3x3.cpp.i
-.PHONY : test_matrix3x3.cpp.i
-
-test_matrix3x3.s: test_matrix3x3.cpp.s
-
-.PHONY : test_matrix3x3.s
-
-# target to generate assembly for a file
-test_matrix3x3.cpp.s:
-	cd /home/jakub/Documents/zad4-jszymanski36/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_matrix3x3.cpp.s
-.PHONY : test_matrix3x3.cpp.s
-
-test_matrix4x4.o: test_matrix4x4.cpp.o
-
-.PHONY : test_matrix4x4.o
-
-# target to build an object file
-test_matrix4x4.cpp.o:
-	cd /home/jakub/Documents/zad4-jszymanski36/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_matrix4x4.cpp.o
-.PHONY : test_matrix4x4.cpp.o
-
-test_matrix4x4.i: test_matrix4x4.cpp.i
-
-.PHONY : test_matrix4x4.i
-
-# target to preprocess a source file
-test_matrix4x4.cpp.i:
-	cd /home/jakub/Documents/zad4-jszymanski36/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_matrix4x4.cpp.i
-.PHONY : test_matrix4x4.cpp.i
-
-test_matrix4x4.s: test_matrix4x4.cpp.s
-
-.PHONY : test_matrix4x4.s
-
-# target to generate assembly for a file
-test_matrix4x4.cpp.s:
-	cd /home/jakub/Documents/zad4-jszymanski36/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_matrix4x4.cpp.s
-.PHONY : test_matrix4x4.cpp.s
-
-test_vector3D.o: test_vector3D.cpp.o
-
-.PHONY : test_vector3D.o
-
-# target to build an object file
-test_vector3D.cpp.o:
-	cd /home/jakub/Documents/zad4-jszymanski36/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_vector3D.cpp.o
-.PHONY : test_vector3D.cpp.o
-
-test_vector3D.i: test_vector3D.cpp.i
-
-.PHONY : test_vector3D.i
-
-# target to preprocess a source file
-test_vector3D.cpp.i:
-	cd /home/jakub/Documents/zad4-jszymanski36/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_vector3D.cpp.i
-.PHONY : test_vector3D.cpp.i
-
-test_vector3D.s: test_vector3D.cpp.s
-
-.PHONY : test_vector3D.s
-
-# target to generate assembly for a file
-test_vector3D.cpp.s:
-	cd /home/jakub/Documents/zad4-jszymanski36/build && $(MAKE) -f tests/CMakeFiles/unit_tests.dir/build.make tests/CMakeFiles/unit_tests.dir/test_vector3D.cpp.s
-.PHONY : test_vector3D.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -316,18 +208,6 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... test_cuboid.o"
-	@echo "... test_cuboid.i"
-	@echo "... test_cuboid.s"
-	@echo "... test_matrix3x3.o"
-	@echo "... test_matrix3x3.i"
-	@echo "... test_matrix3x3.s"
-	@echo "... test_matrix4x4.o"
-	@echo "... test_matrix4x4.i"
-	@echo "... test_matrix4x4.s"
-	@echo "... test_vector3D.o"
-	@echo "... test_vector3D.i"
-	@echo "... test_vector3D.s"
 .PHONY : help
 
 

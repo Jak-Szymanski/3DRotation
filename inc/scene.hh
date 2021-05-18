@@ -8,21 +8,26 @@ class Scene{
 
   private:
 
+    Cuboid LocalCoords;
+
     std::string FileNameGlobalCoords;
-
-    std::string FileNameLocalCoords;
-
+    
     Vector3D Translation;
 
     Vector3D Angles;
 
   public:
 
-    Scene(const std::string global, const std::string local);
+    Scene(double coords[8][SIZE], const std::string global);
 
     bool CalcGlobalCoords();
 
     void ChangeAngles(const Vector3D angle_diff);
 
     void ChangeTranslation(const Vector3D new_transl);
+
+    void CompareSides() {LocalCoords.CompareSides(); };
+
+    void PrintGlobalCoords();
+
 };

@@ -68,16 +68,15 @@ int main() {
   Lacze.ZmienTrybRys(PzG::TR_3D);
 
   char choice;
-  int iterations;
-  Matrix3x3 MatRot;
+  Vector3D degrees;
   std::cout << std::endl << "Prostopadłościan:" << std::endl;
   double T_Cub[8][SIZE] = {{-70,-50,-100}, {70,-50,-100}, {-70,50,-100}, {70,50,-100}, {-70,50,100}, {70,50,100}, {-70,-50,100}, {70,-50,100}};
-  Cuboid Cub(T_Cub);
+/*   Cuboid Cub(T_Cub);
   std::cout << Cub << std::endl << std::endl;
-  Cub.CompareSides();
-  Scene Scene("../datasets/globalcoords.dat", "../datasets/localcoords.dat");
+  Cub.CompareSides(); */
+  Scene Scene(T_Cub, "../datasets/globalcoords.dat");
 
-  if(!SaveCubToFile("../datasets/localcoords.dat", Cub)) return 1;
+/*   if(!SaveCubToFile("../datasets/localcoords.dat", Cub)) return 1; */
   if(!Scene.CalcGlobalCoords()) return 1;
   PrintMenu();
   Lacze.Rysuj();
@@ -90,8 +89,8 @@ int main() {
         case 'o':{
           char axis;
           double degrees_input;
-          Vector3D degrees;
-          MatRot.IdentityMatrix();
+          unsigned int iterations;
+          degrees = Vector3D();
           std::cout << "Podaj sekwencje oznaczen osi oraz katy obrotu w stopniach" << std::endl;
           std::cin >> axis;
           while(axis != '.'){
@@ -127,15 +126,17 @@ int main() {
 
         case 't':
           std::cout << "Powtorzono ostatni obrot" << std::endl << std::endl;
-          Cub.Rotate(MatRot, iterations);
-          Cub.CompareSides();
-          if(!SaveCubToFile("../datasets/prostopadloscian.dat", Cub)) return 1;
+          Scene.ChangeAngles(degrees);
+          if(!Scene.CalcGlobalCoords()) return 1;
           Lacze.Rysuj();          
         break;
 
-        case 'r':
+        case 'r':{
+          Matrix3x3 MatRot;
+          MatRot.RotationMatrix(degrees);
           std::cout << "Macierz ostatniej rotacji: " << std::endl << MatRot << std::endl;
         break;
+        }
 
         case 'p':{
           double x, y, z;
@@ -145,20 +146,19 @@ int main() {
           std::cout << std::endl;
           double T_Vector[SIZE] = {x, y, z};
           Vector3D Vector(T_Vector);
-
-          Cub.Move(Vector);
-          Cub.CompareSides();
-          if(!SaveCubToFile("../datasets/prostopadloscian.dat", Cub)) return 1;
+          Scene.ChangeTranslation(Vector);
+          if(!Scene.CalcGlobalCoords()) return 1;  
           Lacze.Rysuj();
         break;
         }
 
         case 'w':
-          std::cout << "Wspolrzedne wierzcholkow: " << std::endl << std::endl << Cub << std::endl;
+          std::cout << "Wspolrzedne wierzcholkow: " << std::endl << std::endl << std::endl;
+          Scene.PrintGlobalCoords();
         break;
 
         case 's':
-          Cub.CompareSides();
+          Scene.CompareSides();
         break;
 
         case 'm':

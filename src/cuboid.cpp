@@ -72,12 +72,19 @@ bool Cuboid::operator == (const Cuboid &cub) const{
   return 1; 
 }
 
-void Cuboid::Rotate(Matrix3x3 rotation, int iterations){
-
-  for(; iterations > 0; iterations--){
-    for(int i=0; i<8; i++){
-      Points[i] = rotation * Points[i];
+Cuboid Cuboid::operator = (const Cuboid &cub){
+  for(int i=0; i<8; i++){
+    for(int j=0; j<SIZE; j++){
+      Points[i][j] = cub(i, j);
     }
+  }  
+  return *this;
+}
+
+void Cuboid::Rotate(Matrix3x3 rotation){
+
+  for(int i=0; i<8; i++){
+    Points[i] = rotation * Points[i];
   }
 }
 

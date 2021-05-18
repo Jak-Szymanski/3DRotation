@@ -26,7 +26,9 @@ class Cuboid{
 
     bool operator == (const Cuboid &cub) const;
 
-    void Rotate(Matrix3x3 rotation, int iterations);
+    Cuboid operator = (const Cuboid &cub);
+
+    void Rotate(Matrix3x3 rotation);
 
     void CompareSides();
     
