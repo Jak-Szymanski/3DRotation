@@ -71,8 +71,6 @@ fstream
 -
 string
 -
-unistd.h
--
 scene.hh
 /home/jakub/Documents/zad4-jszymanski36/app/scene.hh
 exampleConfig.h
