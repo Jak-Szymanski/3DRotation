@@ -1,0 +1,32 @@
+digraph "main"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="main",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Główna funkcja programu Funkcja zawiera opis interfejsu użytkownika programu i wywołuje wszystkie fun..."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="Scene::CalcGlobalCoords",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_scene.html#a830c222eced4ca38c626262c79f01a06",tooltip="Obliczanie globalnych współrzędnych."];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Cuboid::Move",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_cuboid.html#acf2b985381ced6561d2a47e097c48d63",tooltip="Przesunięcie prostopadłościanu o pewien wektor3D."];
+  Node2 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Cuboid::Rotate",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_cuboid.html#ad5e6617471bcdfdf924fb86d812f693f",tooltip="Obrót prostopadłościanu o pewną macierz obrotu."];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="Scene::ChangeAngles",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_scene.html#ae4a3234a812234fa95735cb38e910623",tooltip="Obracanie położenia lokalnych wspólrzędnych."];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="Scene::ChangeTranslation",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_scene.html#ae8fd373c0b5c41cd432a0f20d8bcd303",tooltip="Zmienianie położenia lokalnych współrzędnych."];
+  Node1 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="PzG::LaczeDoGNUPlota\l::DodajNazwePliku",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pz_g_1_1_lacze_do_g_n_u_plota.html#a34bd48f57c0fd69c12bf4127a1cacd8f",tooltip="Dodaje nazwę pliku."];
+  Node7 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="PzG::CzyJestPlik",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespace_pz_g.html#ae1ae4d36f66c77879380ba73da8e20e3",tooltip=" "];
+  Node1 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="Matrix::IdentityMatrix",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_matrix.html#ad97398c0cf663773e442d28dbf89cb20",tooltip="Uzyskanie macierzy jednostkowej."];
+  Node1 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="PrintMenu",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$app_2main_8cpp.html#a632368ccd119d49b4fa1dc265ed984d4",tooltip="Wyświetlanie opcji menu programu."];
+  Node1 -> Node11 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="Matrix::RotationMatrix",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_matrix.html#a1af89df1bad7f9037194efe8b8cdebbf",tooltip="Obliczanie trójwymiarowej macierzy obrotu."];
+  Node1 -> Node12 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="PzG::LaczeDoGNUPlota\l::Rysuj",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pz_g_1_1_lacze_do_g_n_u_plota.html#a065f5b8402737cc62b0ad4f66d028335",tooltip=" "];
+  Node1 -> Node13 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 [label="PzG::LaczeDoGNUPlota\l::ZmienTrybRys",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pz_g_1_1_lacze_do_g_n_u_plota.html#a10950349b348fd3a3d4143e95337527c",tooltip="Zmienia tryb rysowania."];
+}

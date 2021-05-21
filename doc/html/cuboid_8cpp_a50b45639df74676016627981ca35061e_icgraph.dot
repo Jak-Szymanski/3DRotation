@@ -1,0 +1,14 @@
+digraph "CompareArray"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="CompareArray",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Sprawdzenie czy wartości w tablicy są wszystkie sobie równe."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="PrintComparison",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$cuboid_8cpp.html#a19f3a0a91e673919108e5651471055aa",tooltip="Wyświetlenie porównania długości poszczególnych boków prostopadłościanu zawartych w trzech tablicach."];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="Cuboid::CompareSides",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_cuboid.html#a46fd8725d6b5ae5b3a989c13d16e30dc",tooltip="Porównanie długości boków prostopadłościanu."];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="Scene::CompareSides",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_scene.html#a6878dc1077b6e30520ea5e4c9a67d542",tooltip="Wyświetlanie porównania długości boków prostopadłościanu."];
+}

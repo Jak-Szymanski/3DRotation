@@ -1,55 +1,100 @@
 #pragma once
 
+/*! 
+* \file
+* \brief Definicja szablonu Vector
+*
+* Plik zawiera definicję szablonu Vector oraz jego metod 
+*/
+
 #include "size.hh"
 #include <iostream>
 #include <math.h>
 
 #define MIN_DIFF 0.01
 
+/*!
+* \brief Modeluje pojęcie wektora o dowolnym rozmiarze i typie danych, które on zawiera
+*/
 template <typename Type, int Size>
 class Vector {
 
 private:
 
-    Type size[Size];     //Tablica wektora
+    /*!
+    * \brief Tablica wektora
+    */
+    Type size[Size];
 
 public:
 
+    /*!
+    * \brief Konstruktor bezparametryczny  wektora
+    */
     Vector();
 
+    /*!
+    * \brief Konstruktor parametryczy wektora z tablicą jako parametr
+    */
     Vector(Type [Size]);
 
+    /*!
+    * \brief Przeciążenie operatora dodawania dwóch wektorów
+    */
     Vector<Type, Size> operator + (const Vector<Type, Size> &v);
 
+    /*!
+    * \brief Przeciążenie operatora odejmowania dwóch wektorów
+    */
     Vector<Type, Size> operator - (const Vector<Type, Size> &v);
 
+    /*!
+    * \brief Przeciążenie operatora mnożenia wektora przez zmienną
+    */
     Vector<Type, Size> operator * (const Type &tmp);
 
+    /*!
+    * \brief Przeciążenie operatora dzielenia wektora przez zmienną
+    */
     Vector<Type, Size> operator / (const Type &tmp);
 
+    /*!
+    * \brief Przeciążenie operatora indeksowania wektora (zwraca zmienną const)
+    */
     const Type &operator [] (unsigned int index) const;
 
+    /*!
+    * \brief Przeciążenie operatora indeksowania wektora (zwraca zmienną modyfikowalną)
+    */
     Type &operator [] (unsigned int index);
 
+    /*!
+    * \brief Przeciążenie operatora porównania dwóch wektorów
+    */
     bool operator == (const Vector<Type, Size> &v) const;
 
+    /*!
+    * \brief Wyznacza odległość między dwoma punktami zapisanymi jako wektory
+    */
     double Distance (const Vector<Type, Size> &v1, const Vector<Type, Size> &v2);
 
 };
 
+/*!
+* \brief Przeciążenie operatora przesunięcia bitowego w lewo dla wektora
+*/
 std::ostream &operator << (std::ostream &out, Vector<double, SIZE> const &tmp);
 
+/*!
+* \brief Przeciążenie operatora przesunięcia bitowego w prawo dla wektora
+*/
 std::istream &operator >> (std::istream &in, Vector<double, SIZE> &tmp);
 
 
 
-/******************************************************************************
- |  Konstruktor klasy Vector.                                                 |
- |  Argumenty:                                                                |
- |      Brak argumentow.                                                      |
- |  Zwraca:                                                                   |
- |      Tablice wypelniona wartoscia 0.                                       |
- */
+/*!
+* Inicjalizuje zmienną typu wektor o danym typie danych i rozmiarze. Wypełnia ten wektor zerami.
+*/
 template <typename Type, int Size>
 Vector<Type, Size>::Vector() {
     for (int i = 0; i < Size; ++i) {
@@ -58,30 +103,26 @@ Vector<Type, Size>::Vector() {
 }
 
 
-/******************************************************************************
- |  Konstruktor klasy Vector.                                                 |
- |  Argumenty:                                                                |
- |      tmp - Jednowymiarowa tablica typu double.                             |
- |  Zwraca:                                                                   |
- |      Tablice wypelniona wartosciami podanymi w argumencie.                 |
- */
+/*!
+* Inicjalizuje zmienną typu wektor o podanym typie współrzędnych i rozmiarze.
+* Wypełnia ten wektor wartościami zapisanymi w tablicy tmp.
+* \param[in] tmp - tablica zawierająca wartości, które powinny być wpisane do inicjowanego wektora
+*/
 template <typename Type, int Size>
-Vector<Type, Size>::Vector(Type tmp[SIZE]) {
+Vector<Type, Size>::Vector(Type tmp[Size]) {
     for (int i = 0; i < Size; ++i) {
         size[i] = tmp[i];
     }
 }
 
+/*!
+* Dodawanie dwóch wektorów takiego samego typu i rozmiaru
+* \param[in] this - Pierwszy składnik dodawania
+* \param[in] v - Drugi składnik dodawania
+*
+* \return Sumę argumentów jako wektor tego samego typu i rozmiaru
+*/ 
 
-/******************************************************************************
- |  Realizuje dodawanie dwoch wektorow.                                       |
- |  Argumenty:                                                                |
- |      this - pierwszy skladnik dodawania,                                   |
- |      v - drugi skladnik dodawania.                                         |
- |  Zwraca:                                                                   |
- |      Sume dwoch skladnikow przekazanych jako wskaznik                      |
- |      na parametr.                                                          |
- */
 template <typename Type, int Size>
 Vector<Type, Size> Vector<Type, Size>::operator + (const Vector<Type, Size> &v) {
     for (int i = 0; i < Size; ++i) {
@@ -91,15 +132,13 @@ Vector<Type, Size> Vector<Type, Size>::operator + (const Vector<Type, Size> &v) 
 }
 
 
-/******************************************************************************
- |  Realizuje odejmowanie dwoch wektorow.                                     |
- |  Argumenty:                                                                |
- |      this - pierwszy skladnik odejmowania,                                 |
- |      v - drugi skladnik odejmowania.                                       |
- |  Zwraca:                                                                   |
- |      Roznice dwoch skladnikow przekazanych jako wskaznik                   |
- |      na parametr.                                                          |
- */
+/*!
+* Odejmowanie dwóch wektorów takiego samego typu i rozmiaru
+* \param[in] this - Pierwszy składnik odejmowania
+* \param[in] v - Drugi składnik odejmowania
+*
+* \return Różnicę argumentów jako wektor tego samego typu i rozmiaru
+*/ 
 template <typename Type, int Size>
 Vector<Type, Size> Vector<Type, Size>::operator - (const Vector &v) {
     for (int i = 0; i < Size; ++i) {
@@ -109,33 +148,29 @@ Vector<Type, Size> Vector<Type, Size>::operator - (const Vector &v) {
 }
 
 
-/******************************************************************************
- |  Realizuje mnozenie wektora przez liczbe zmiennoprzecinkowa.               |
- |  Argumenty:                                                                |
- |      this - pierwszy skladnik mnozenia (wektor),                           |
- |      v - drugi skladnik mnozenia (liczba typu double).                     |
- |  Zwraca:                                                                   |
- |      Iloczyn dwoch skladnikow przekazanych jako wskaznik                   |
- |      na parametr.                                                          |
- */
+/*!
+* Mnożenie wektora przez zmienną typu takiego samego co współrzędne wektora
+* \param[in] this - Pierwszy składnik mnożenia (wektor)
+* \param[in] tmp - Drugi składnik mnożenia (zmienna Type)
+*
+* \return Iloczyn argumentów jako wektor tego samego typu i rozmiaru
+*/ 
 template <typename Type, int Size>
-Vector<Type, Size> Vector<Type, Size>::operator * (const Type &tmp) {
+Vector<Type, Size> Vector<Type, Size>::operator * (const Type &c) {
     for (int i = 0; i < Size; ++i) {
-        size[i] *= tmp;
+        size[i] *= c;
     }
     return *this;
 }
 
 
-/******************************************************************************
- |  Realizuje dzielenie dwoch wektorow.                                       |
- |  Argumenty:                                                                |
- |      this - licznik dzielenia,                                             |
- |      v - mianownik dzielenia.                                              |
- |  Zwraca:                                                                   |
- |      Iloraz dwoch skladnikow przekazanych jako wskaznik                    |
- |      na parametr.                                                          |
- */
+/*!
+* Dzielenie wektora przez zmienną typu takiego samego co współrzędne wektora
+* \param[in] this - Pierwszy składnik dzielenia (wektor)
+* \param[in] tmp - Drugi składnik dzielenia (zmienna Type)
+*
+* \return Iloraz argumentów jako wektor tego samego typu i rozmiaru
+*/ 
 template <typename Type, int Size>
 Vector<Type, Size> Vector<Type, Size>::operator / (const Type &tmp) {
     for (int i = 0; i < Size; ++i) {
@@ -146,13 +181,13 @@ Vector<Type, Size> Vector<Type, Size>::operator / (const Type &tmp) {
 }
 
 
-/******************************************************************************
- |  Funktor wektora.                                                          |
- |  Argumenty:                                                                |
- |      index - index wektora.                                                |
- |  Zwraca:                                                                   |
- |      Wartosc wektora w danym miejscu tablicy jako stala.                   |
- */
+/*! 
+* Indeksowanie wektora (const)
+* \param[in] this - Wektor
+* \param[in] index - Nr indeksu, którego wartość chcemy odczytać z wektora
+* 
+* \return Wartość wektora w danym indeksie wyrażona jako wartość stała Type
+*/
 template <typename Type, int Size>
 const Type &Vector<Type, Size>::operator [] (unsigned int index) const {
     if (index >= Size) {
@@ -162,19 +197,25 @@ const Type &Vector<Type, Size>::operator [] (unsigned int index) const {
 }
 
 
-/******************************************************************************
- |  Funktor wektora.                                                          |
- |  Argumenty:                                                                |
- |      index - index wektora.                                                |
- |  Zwraca:                                                                   |
- |      Wartosc wektora w danym miejscu tablicy.                              |
- */
+/*! 
+* Indeksowanie wektora (modyfikowalny)
+* \param[in] this - Wektor
+* \param[in] index - Nr indeksu, którego wartość chcemy odczytać z wektora
+* 
+* \return Wartość wektora w danym indeksie wyrażona jako wartość modyfikowalna Type
+*/
 template <typename Type, int Size>
 Type &Vector<Type, Size>::operator[](unsigned int index) {
     return const_cast<Type &>(const_cast<const Vector *>(this)->operator[](index));
 }
 
-
+/*!
+* Porównywanie wektorów tego samego typu i rozmiaru
+* \param[in] this - Pierwszy wektor
+* \param[in] v - Drugi wektor
+*
+* \return 1 jeżeli wektory mają takie same wartości, 0 jeżeli nie (przy pewnej określonej tolerancji)
+*/
 template <typename Type, int Size>
 bool Vector<Type, Size>::operator == (const Vector<Type, Size> &v) const {
     for (int i = 0; i < Size; ++i){
@@ -186,7 +227,13 @@ bool Vector<Type, Size>::operator == (const Vector<Type, Size> &v) const {
 }
 
 
-
+/*!
+* Obliczanie odległości pomiędzy dwoma wektorami tego samego typu i rozmiaru
+* \param[in] v1 - Pierwszy wektor
+* \param[in] v2 - Drugi wektor
+*
+*\return Odległość pomiędzy dwoma punktami, których współrzędne są opisane wektorami podanymi w argumentach, jako zmienna typu double.
+*/
 template <typename Type, int Size>
 double Distance (const Vector<Type, Size> &v1, const Vector<Type, Size> &v2){
 

@@ -1,19 +1,18 @@
-// Executables must have the following defined if the library contains
-// doctest definitions. For builds with this disabled, e.g. code shipped to
-// users, this can be left out.
 #ifdef ENABLE_DOCTEST_IN_LIBRARY
 #define DOCTEST_CONFIG_IMPLEMENT
 #include "../tests/doctest/doctest.h"
 #endif
 
+/*!
+* \file
+* \brief Definicja funkcji main programu i funkcji wyświetlania menu
+*/
 #include <iostream>
 #include <iomanip>
 #include <stdlib.h>
 #include <fstream>
 #include <string>
 
-
-#include<unistd.h>                       /*  usun to  */
 
 #include "scene.hh"
 #include "exampleConfig.h"
@@ -22,6 +21,12 @@
 
 #include "../inc/lacze_do_gnuplota.hh"
 
+#define FILE_GLOBAL "../datasets/globalcoords.dat"
+#define FILE_LOCAL "../datasets/localcoords.dat"
+
+/*!
+* \brief Wyświetlanie opcji menu programu
+*/
 void PrintMenu(){
 
   std::cout << std::endl << "o - obrot bryly o zadana sekwencje katow" << std::endl;
@@ -34,6 +39,10 @@ void PrintMenu(){
   std::cout << "k - koniec dzialania programu" << std::endl << std::endl;
 }
 
+/*!
+* \brief Główna funkcja programu
+* Funkcja zawiera opis interfejsu użytkownika programu i wywołuje wszystkie funkcje wykonywane przez program
+*/
 int main() {
   std::cout << "Project Rotation 3D based on C++ Boiler Plate v"
             << PROJECT_VERSION_MAJOR /*duże zmiany, najczęściej brak kompatybilności wstecz */
@@ -54,7 +63,7 @@ int main() {
    //  na dwa sposoby:
    //   1. Rysowane jako linia ciagl o grubosci 2 piksele
    //
-  Lacze.DodajNazwePliku("../datasets/globalcoords.dat",PzG::RR_Ciagly,2);
+  Lacze.DodajNazwePliku(FILE_GLOBAL,PzG::RR_Ciagly,2);
    //
    //   2. Rysowane jako zbior punktow reprezentowanych przez kwadraty,
    //      których połowa długości boku wynosi 2.
@@ -67,17 +76,17 @@ int main() {
    //
   Lacze.ZmienTrybRys(PzG::TR_3D);
 
-  char choice;
-  Vector3D degrees;
-  std::cout << std::endl << "Prostopadłościan:" << std::endl;
-  double T_Cub[8][SIZE] = {{-70,-50,-100}, {70,-50,-100}, {-70,50,-100}, {70,50,-100}, {-70,50,100}, {70,50,100}, {-70,-50,100}, {70,-50,100}};
-/*   Cuboid Cub(T_Cub);
-  std::cout << Cub << std::endl << std::endl;
-  Cub.CompareSides(); */
-  Scene Scene(T_Cub, "../datasets/globalcoords.dat");
+  char choice;    // wybór opcji przez użytkownika
+  std::ifstream file_local(FILE_LOCAL);   //plik zawierający współrzędne lokalne prostopadłościanu
+  std::ifstream file_global(FILE_GLOBAL);   //plik do którego są wpisywane współrzędne globalne prostopadłościanu
+  Matrix3x3 MatRot;   //macierz obrotu
+  unsigned int iterations;    //ile razy powinien zostać wykonany obrót prostopadłościanu
 
-/*   if(!SaveCubToFile("../datasets/localcoords.dat", Cub)) return 1; */
-  if(!Scene.CalcGlobalCoords()) return 1;
+  Cuboid cub;   //prostopadłościan
+  file_local >> cub;    //zapisanie do prostopadłościanu zmiennych lokalnych  
+  Scene Scene(cub);     //inicjacja sceny prostopadłościanu
+
+  if(!Scene.CalcGlobalCoords(FILE_GLOBAL)) return 1;
   PrintMenu();
   Lacze.Rysuj();
 
@@ -86,59 +95,43 @@ int main() {
     std::cin >> choice;
       switch(choice){
         
-        case 'o':{
+        case 'o':{        //obrót prostopadłościanu
           char axis;
-          double degrees_input;
-          unsigned int iterations;
-          degrees = Vector3D();
+          double degrees;
+          MatRot.IdentityMatrix();
           std::cout << "Podaj sekwencje oznaczen osi oraz katy obrotu w stopniach" << std::endl;
           std::cin >> axis;
           while(axis != '.'){
-            std::cin >> degrees_input;
-            switch(axis){
-              
-              case 'x':
-              degrees[0] += degrees_input;
-              break;
-
-              case 'y':
-              degrees[1] += degrees_input;
-              break;
-
-              case 'z':
-              degrees[2] += degrees_input;
-              break;
-
-              default:
+            std::cin >> degrees;
+              if(axis != 'x' && axis != 'y' && axis != 'z'){
                 std::cout << ":( Bledne oznaczenie osi. Dopuszczalne znaki to: x y z ." << std::endl;
                 std::cout << ":( Sprobuj jeszcze raz." << std::endl;
-            }
+              } else {
+                MatRot.RotationMatrix(degrees, axis);
+              }
             std::cin >> axis;
           }
           std::cout << std::endl << "Ile razy operacja obrotu ma byc powtorzona?" << std::endl;
           std::cin >> iterations;
-          degrees = degrees * iterations;
-          Scene.ChangeAngles(degrees);
-          if(!Scene.CalcGlobalCoords()) return 1;
+          Scene.ChangeAngles(MatRot, iterations);
+          if(!Scene.CalcGlobalCoords(FILE_GLOBAL)) return 1;
           Lacze.Rysuj();
         break;
         }
 
-        case 't':
+        case 't':     //powtórzenie ostatniego obrotu
           std::cout << "Powtorzono ostatni obrot" << std::endl << std::endl;
-          Scene.ChangeAngles(degrees);
-          if(!Scene.CalcGlobalCoords()) return 1;
+          Scene.ChangeAngles(MatRot, iterations);
+          if(!Scene.CalcGlobalCoords(FILE_GLOBAL)) return 1;
           Lacze.Rysuj();          
         break;
 
-        case 'r':{
-          Matrix3x3 MatRot;
-          MatRot.RotationMatrix(degrees);
+        case 'r':{    //wyświetlenie ostatniej macierzy rotacji
           std::cout << "Macierz ostatniej rotacji: " << std::endl << MatRot << std::endl;
         break;
         }
 
-        case 'p':{
+        case 'p':{    //przesunięcie prostopadłościanu o wektor
           double x, y, z;
           std::cout <<  "Wprowadz wspolrzedne wektora translacji w postaci trzech liczb" << std::endl;       
           std::cout << "tzn. wspolrzednej x, wspolrzednej y oraz wspolrzednej z" << std::endl;
@@ -147,25 +140,28 @@ int main() {
           double T_Vector[SIZE] = {x, y, z};
           Vector3D Vector(T_Vector);
           Scene.ChangeTranslation(Vector);
-          if(!Scene.CalcGlobalCoords()) return 1;  
+          if(!Scene.CalcGlobalCoords(FILE_GLOBAL)) return 1;  
           Lacze.Rysuj();
         break;
         }
 
-        case 'w':
+        case 'w':   //wyświetlenie współrzędnych prostopadłościanu
           std::cout << "Wspolrzedne wierzcholkow: " << std::endl << std::endl << std::endl;
-          Scene.PrintGlobalCoords();
+          file_global >> cub;
+          std::cout << cub;
         break;
 
-        case 's':
-          Scene.CompareSides();
+        case 's':   //porównanie długości boków prostopadłościanu
+          file_global >> cub;
+          cub.CompareSides();          
         break;
 
-        case 'm':
+
+        case 'm':   //wyświetlenie menu
           PrintMenu();
         break;
 
-        case 'k':
+        case 'k':   //koniec działania programu
         std::cout << "Koniec działania programu." << std::endl;
         break;
 

@@ -1,10 +1,23 @@
 #include <cmath>
 #include <iomanip>
 
+/*!
+* \file 
+* \brief Metody zdefiniowane dla Macierzy4x4
+*/
+
 #include "../inc/matrix4x4.hh"
 
 #define PI 3.14159265358979323846
 
+/*! 
+* Uzyskanie czterowymiarowej macierzy obrotu i translacji. 
+* \param[in] this - macierz
+* \param[in] alpha - kąt w osi x w stopniach
+* \param[in] beta - kąt w osi y w stopniach
+* \param[in] gamma - kąt w osi z w stopniach
+* \param[in] transl - wektor translacji
+*/
 template<>
 void Matrix4x4::RotationMatrix4x4(double alpha, double beta, double gamma, Vector3D transl){
 
@@ -34,13 +47,12 @@ void Matrix4x4::RotationMatrix4x4(double alpha, double beta, double gamma, Vecto
   value[3][3] = 1;
 }
 
-/******************************************************************************
- |  Przeciazenie operatora <<                                                 |
- |  Argumenty:                                                                |
- |      out - strumien wejsciowy,                                             |
- |      mat - macierz.                                                        |
- */
-
+/*!
+* \brief Przeciążenie operatora << dla Macierzy4x4
+* 
+* \param[in] out - adres strumienia wyjściowego
+* \param[in] mat - macierz
+*/
 std::ostream &operator<<(std::ostream &out, const Matrix4x4 &mat) {
     for (int i = 0; i < 4; ++i) {
         for (int j = 0; j < 4; ++j) {
@@ -52,13 +64,12 @@ std::ostream &operator<<(std::ostream &out, const Matrix4x4 &mat) {
 }
 
 
-/******************************************************************************
- |  Przeciazenie operatora >>                                                 |
- |  Argumenty:                                                                |
- |      in - strumien wyjsciowy,                                              |
- |      mat - macierz.                                                        |
- */
-
+/*!
+* \brief Przeciążenie operatora >> dla Macierzy4x4
+* 
+* \param[in] in - adres strumienia wejściowego
+* \param[in] mat - macierz
+*/
 std::istream &operator>>(std::istream &in, Matrix4x4 &mat) {
     for (int i = 0; i < 4; ++i) {
         for (int j = 0; j < 4; ++j) {

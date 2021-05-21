@@ -5,8 +5,15 @@
 #include <iomanip> 
 #include <fstream> 
 
-#define MIN_DIFF  0.01
+/*!
+* \file
+* \brief Definicje metod klasy Cuboid
+*/
 
+#define MIN_DIFF  0.01
+/*!
+* Inicjalizuje zmienną typu Cuboid, wypełnia wszystkie współrzędne wierzchołków zerami
+*/
 Cuboid::Cuboid(){
   Points.reserve(8);
   for(int i = 0; i < 8; ++i){
@@ -14,7 +21,9 @@ Cuboid::Cuboid(){
   }
 }
 
-
+/*! 
+* Inicjalizuje zmienną typu Cuboid, w której współrzędne wierzchołków są takie same jak w prostopadłościanie podanym w argumencie
+*/
 Cuboid::Cuboid(const Cuboid &cub){
   Points.reserve(8);
   for(int i=0; i<8; i++){
@@ -22,7 +31,9 @@ Cuboid::Cuboid(const Cuboid &cub){
   }
 }
 
-
+/*!
+* Inicjalizuje zmienną typu Cuboid, wypełnia wszystkie współrzędne wierzchołków wartościami podanymi w argumencie
+*/
 Cuboid::Cuboid(double tmp[8][SIZE]){
 
   Points.reserve(8);
@@ -32,7 +43,14 @@ Cuboid::Cuboid(double tmp[8][SIZE]){
   }
 }
 
-
+/*!
+* Uzyskiwanie danej współrzędnej prostopadłościanu jako zmienna const
+* \param[in] this - prostopadłościan
+* \param[in] row - nr szukanego wierzchołka (0-8)
+* \param[in] column - nr współrzędnej w danym wierzchołku (0 = x, 1 = y, 2 = z)
+*
+* \return Wartość współrzędnej w danym wierzchołku w danej osi jako wartość double const
+*/ 
 double &Cuboid::operator () (unsigned int row, unsigned int column){
 
     if (row >= 8) {
@@ -46,7 +64,14 @@ double &Cuboid::operator () (unsigned int row, unsigned int column){
     return Points[row][column];
 }
 
-
+/*!
+* Uzyskiwanie danej współrzędnej prostopadłościanu jako zmienna modyfikowalna
+* \param[in] this - prostopadłościan
+* \param[in] row - nr szukanego wierzchołka (0-8)
+* \param[in] column - nr współrzędnej w danym wierzchołku (0 = x, 1 = y, 2 = z)
+*
+* \return Wartość współrzędnej w danym wierzchołku w danej osi jako wartość double modyfikowalna
+*/ 
 const double &Cuboid::operator () (unsigned int row, unsigned int column) const {
 
     if (row >= 8) {
@@ -60,7 +85,13 @@ const double &Cuboid::operator () (unsigned int row, unsigned int column) const 
     return Points[row][column];
 }
 
-
+/*!
+* Porównanie dwóch prostopadłościanów
+* \param[in] this - Pierwszy prostopadłościan
+* \param[in] cub - Drugi prostopadłościan
+*
+* \return 1 jeżeli wszystkie wierzchołki obu prostopadłościanów mają takie same współrzędne, 0 jeżeli nie (przy pewnej tolerancji)
+*/
 bool Cuboid::operator == (const Cuboid &cub) const{
   for(int i=0; i<8; i++){
     for(int j=0; j<SIZE; j++){
@@ -72,6 +103,13 @@ bool Cuboid::operator == (const Cuboid &cub) const{
   return 1; 
 }
 
+/*!
+* Przypisanie współrzędnych prostopadłościanów
+* \param[in] this - Pierwszy prostopadłościan (do którego wartości będą wpisywane)
+* \param[in] cub - Drugi prostopadłościan (z którego wartości będą przepisywane)
+*
+* \return Prostopadłościan po przypisaniu
+*/
 Cuboid Cuboid::operator = (const Cuboid &cub){
   for(int i=0; i<8; i++){
     for(int j=0; j<SIZE; j++){
@@ -81,6 +119,13 @@ Cuboid Cuboid::operator = (const Cuboid &cub){
   return *this;
 }
 
+/*!
+* Obrót prostopadłościanu o pewną macierz obrotu
+* \param[in] this - Prostopadłościan
+* \param[in] rotation - Macierz obrotu 3x3
+*
+* \return Prostopadłościan po przemnożeniu każdego wierzchołka przez macierz obrotu
+*/
 void Cuboid::Rotate(Matrix3x3 rotation){
 
   for(int i=0; i<8; i++){
@@ -88,6 +133,13 @@ void Cuboid::Rotate(Matrix3x3 rotation){
   }
 }
 
+/*!
+* Przesunięcie prostopadłościanu o pewien wektor
+* \param[in] this - Prostopadłościan
+* \param[in] v - Wektor przesunięcia 3D
+*
+*\return Prostopadłościan po przesunięciu każdego wierzchołka przez wektor przesunięcia
+*/
 void Cuboid::Move(const Vector3D v){
   
   for(int i=0; i<8; i++){
@@ -95,7 +147,13 @@ void Cuboid::Move(const Vector3D v){
   } 
 }
 
-
+/*!
+* Wpisywanie współrzędnych wierzchołków prostopadłościanu do strumienia wyjściowego w sposób odpowiedni dla GNUplota 
+* do wyświetlenia go.
+* 
+* \param[in] out - adres strumienia wyjściowego
+* \param[in] cub - prostopadłościan
+*/
 std::ostream &operator<<(std::ostream &out, Cuboid const &cub){
 
   for(int i=0; i<8; i++){
@@ -117,21 +175,26 @@ std::ostream &operator<<(std::ostream &out, Cuboid const &cub){
   return out;
 }
 
-bool SaveCubToFile(const char *FileName, Cuboid &cub){
-       std::ofstream file;
+/*!
+* Wczytywanie współrzędnych wierzchołków prostopadłościanu do zmiennej typu Cuboid
+* \param[in] in - adres strumienia wejściowego
+* \param[in] cub - prostopadłościan
+*/
+std::istream &operator >> (std::istream &in, Cuboid &cub){
 
-       file.open(FileName);
-       if (!file.is_open())  {
-              std::cerr << ":(  Operacja otwarcia do zapisu \"" << FileName << "\"" << std::endl
-	        << ":(  nie powiodla sie." << std::endl;
-       return false;
+  for(int i = 0; i<8; ++i){
+    for(int j = 0; j<SIZE; ++j){
+      in >> cub(i,j);
+    }
   }
-
-  file << cub;
-  file.close();
-  return !file.fail();
+  return in;
 }
 
+/*!
+* Porównanie długości boków prostopadłościanu
+* Funckja wyświetli porównanie wszystkich przeciwległych boków prostopadłościanu (czy są równe z pewną tolerancją i jakie mają długości)
+* \param[in] this - prostopadłościan
+*/
 void Cuboid::CompareSides(){
 
   double a[4] = {Distance(Points[0],Points[2]), Distance(Points[1],Points[3]), Distance(Points[4],Points[6]),Distance(Points[5],Points[7])};
@@ -161,6 +224,14 @@ void Cuboid::CompareSides(){
   }
 }
 
+/*!
+* Wyświetlenie porównania trzech tablic zawierających długości boków prostopadłościanu
+* Funckja przyjmuje trzy tablice 4 elementowe w odpowiedniej kolejności zależnej od długości boków zapisanych w nich i wyświetla komunikat
+* o tym czy długości zapisane w niej są wszystkie sobie równe z pewną tolerancją
+* \param[in] Largest - tablica zawierająca najdłuższe boki prostopadłościanu
+* \param[in] Medium - tablica zawierająca średniej długości boki prostopadłościanu
+* \param[in] Smallest - tablica zawierająca najkrótsze boki prostopadłościanu
+*/
 void PrintComparison(double Largest[4], double Medium[4], double Smallest[4]){
 
   if(CompareArray(Largest)){
@@ -185,6 +256,12 @@ void PrintComparison(double Largest[4], double Medium[4], double Smallest[4]){
   PrintLengths(Medium);
 }
 
+/*!
+* Porównanie wszystkich długości boków prostopadłościanu zapisanych w danej 4 - elementowej tablicy
+* \param[in] Array - tablica z długościami przeciwległych boków
+*
+* \return 1 jeżeli wszystkie boki są sobie równe, 0 jeżeli nie (przy pewnej tolerancji)
+*/
 bool CompareArray(double Array[4]){
   
   for(int i = 0; i < 3; i++){
@@ -197,6 +274,10 @@ bool CompareArray(double Array[4]){
   return 1;
 }
 
+/*!
+* Wyświetlenie długości każdego boku zapisanego w danej 4 - elementowej tablicy
+* \param[in] Array - tablica z długościami przeciwległych boków
+*/
 void PrintLengths(double Array[4]){
 
   std::cout << "Dlugosc pierwszego boku: " << std::fixed << std::setprecision(10) << Array[0] << std::endl;
